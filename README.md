@@ -2,15 +2,15 @@
  Group project for "Statistical Thinking for Data Science" @ UTS, Spring 2021
 
 ## Outline
-- [Assessment 2: Data Analysis](#assessment-2-data-analysis)
+<!-- omit in toc -->
   - [Outline](#outline)
   - [Project Information](#project-information)
     - [1. Part A (Proposal)](#1-part-a-proposal)
     - [2. Part B (Report)](#2-part-b-report)
   - [Repo Navigations](#repo-navigations)
   - [`.Rmd` files dictionary](#rmd-files-dictionary)
-    - [**Part A - Proposal**](#part-a---proposal)
-    - [**Part B - Report**](#part-b---report)
+    - [Part A - Proposal](#part-a---proposal)
+    - [Part B - Report](#part-b---report)
   - [In-text Citation and References](#in-text-citation-and-references)
     - [1. Things to do](#1-things-to-do)
     - [2. How to cite the in-text citation?](#2-how-to-cite-the-in-text-citation)
