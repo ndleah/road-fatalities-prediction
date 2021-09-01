@@ -1,0 +1,130 @@
+---
+title: ""
+output:
+  pdf_document:
+    number_sections: TRUE
+geometry: "left = 2.5cm, right = 2cm, top = 2cm, bottom = 2cm"
+fontsize: 11pt
+header-includes:
+  - \usepackage{float}
+  - \usepackage{sectsty}
+  - \usepackage{paralist}
+  - \usepackage{setspace}\spacing{1.5}
+  - \usepackage{fancyhdr}
+  - \usepackage{lastpage}
+  - \usepackage{dcolumn}
+  - \usepackage{natbib}\bibliographystyle{agsm}
+  - \usepackage[nottoc, numbib]{tocbibind}
+bibliography: bibliography.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(tinytex.verbose = TRUE)
+```
+
+```{=tex}
+\allsectionsfont{\centering}
+\subsectionfont{\raggedright}
+\subsubsectionfont{\raggedright}
+```
+\pagenumbering{gobble}
+
+```{=tex}
+\begin{centering}
+
+\vspace{4cm}
+
+\Large
+
+\doublespacing
+{\bf ASSESSMENT 2: DATA ANALYSIS \\Part A: Proposal}
+
+\vspace{2cm}
+
+\Large
+
+\doublespacing
+{\bf 36103 Statistical Thinking for Data Science\\University Of Technology Sydney}
+
+\vspace{1 cm}
+
+\normalsize
+\singlespacing
+
+\Large{\textbf{Group Name}}\\
+\doublespacing
+Retail Group\\
+\vspace*{2\baselineskip}
+\Large{\textbf{Group Members}}\\
+\doublespacing
+Leah Nguyen\\
+Tony Tan\\
+Anmol Mittal\\
+Ben McKinnon\\
+Kasun Caldera\\
+Manasa Burli Nagendra\\
+Paul Touhill\\
+
+\vspace*{1\baselineskip}
+
+\Large{\textbf{Date}}\\
+\doublespacing
+September 5, 2021
+
+\end{centering}
+```
+\pagenumbering{roman}
+
+\newpage
+
+<!---Table of Content (TOC)-->
+```{=tex}
+\centering
+\raggedright
+\newpage
+\tableofcontents
+```
+
+\newpage
+
+<!---Sections-->
+
+<!---Introduction-->
+```{r intro, child = 'introduction.Rmd'}
+```
+\pagenumbering{arabic}
+
+\newpage
+
+<!---Research Questions-->
+```{r questions, child='questions.Rmd'}
+```
+
+\newpage
+
+<!---Methods-->
+```{r methods, child = 'methods.Rmd'}
+```
+
+\newpage
+
+<!---Model-->
+```{r model, child = 'model.Rmd'}
+```
+
+\newpage
+<!---Limitations-->
+```{r limitations, child = 'limitations.Rmd'}
+```
+
+
+\newpage
+<!---References-->
+```{r biblio, child = 'bibliography.Rmd'}
+```
+
+\newpage
+<!---Appendix-->
+```{r appendix, child = 'appendix.Rmd'}
+```
