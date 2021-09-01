@@ -23,6 +23,7 @@
 
 ### 1. Part A (Proposal)
 **Length:** 750-1000 words (not including code samples in appendix)
+
 **Due Date:** 11:59pm Sunday 5th September
 
 ### 2. Part B (Report)
