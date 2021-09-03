@@ -95,29 +95,30 @@ September 5, 2021
 ```
 \pagenumbering{arabic}
 
-\newpage
 
 <!---Research Questions-->
 ```{r questions, child='questions.Rmd'}
 ```
 
-\newpage
+
+<!---Data-->
+```{r data, child = 'data.Rmd'}
+```
+
 
 <!---Methods-->
 ```{r methods, child = 'methods.Rmd'}
 ```
 
-\newpage
 
 <!---Model-->
 ```{r model, child = 'model.Rmd'}
 ```
 
-\newpage
+
 <!---Limitations-->
 ```{r limitations, child = 'limitations.Rmd'}
 ```
-
 
 \newpage
 <!---References-->

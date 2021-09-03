@@ -8,26 +8,6 @@ header-includes:
 
 # Introduction
 
-Death, injury and disability from road traffic crashes (RTCs) continue to be major global public health problems. A road traffic crash results from a combination of factors related to the components of the system comprising roads, the environment, vehicles and road users, and the way they interact. Identifying the risk factors that contribute to road traffic crashes is important in identifying interventions that can reduce the risks associated with those factors.   
+Death from road traffic crashes continue to be major global public health problems across Australia \citep*{unknown-author-2021}. A road traffic fatality results from a complex interaction of **human**, **technical** and **environmental** factors, and different causes behind road vehicle crashes require different measures to reduce their impacts. Identifying the risk factors that contribute to road traffic deaths is important in identifying interventions that can reduce the risks associated with those factors.
 
-The aim of this study is to investigate the possible associations between some environmental factors and the increased risk of motor vehicle crash-related mortality in Victoria, Australia. Next, our group will try to predict the number of fatalities based on those factors. 
-
-\citep{breton_encounter_2006}
-
-\citep*{breton_encounter_2006}
-
-\citet{breton_encounter_2006}
-
-\citet*{breton_encounter_2006}
-
-\citep{martin_diet_1989, breton_encounter_2006}
-
-\citeauthor{breton_encounter_2006}
-
-\citeauthor*{breton_encounter_2006}
-
-\citeyear{breton_encounter_2006}
-
-\citeyearpar{breton_encounter_2006}
-
-*The introduction should not be just a ‘Literature Review’.*
+Our group study assesses how strongly the variation between some environmental factors and the increased risk of vehicle crash-related mortality in Victoria, Australia. The findings are relevant in the context of impact based warnings for both **road users**, **road maintenance** and **traffic management authorities**, as well as **rescue forces**. On the one hand, this is relevant for raising the effectiveness of road weather warning services, while on the other hand, it may help rescue and medical services to project the number of emergencies in designated regions in case weather forecasts foresee bad conditions for road transport.
