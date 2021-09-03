@@ -4,4 +4,4 @@ output: pdf_document
 ---
 
 # Limitations
-We don’t have the data for cars driving that didn’t get into an accident. Therefore, instead of predicting accidents, we are predicting deaths when accidents do occur.
+We don’t have the data for cars driving that didn’t get into an accident. Therefore, instead of predicting accidents, we are predicting deaths when accidents do occur. The issue here is we cannot quite research how effective a factor is at preventing deaths, as a death causing accident could have been prevented altogether due to this factor. Yet, on data, this factor may seem to always lead to deaths, because of negligent drivers. 

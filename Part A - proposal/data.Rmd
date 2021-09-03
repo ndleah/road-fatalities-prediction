@@ -10,5 +10,4 @@ A data set with anonymized information from government of all road accidents in 
 
 ## Weather
 
-Weather datasets contains about 14 years of daily weather observations from many locations across Australia and were collected by [API source]. Data given includes a weather table describing daily mean, maximum, and minimum temperature and precipitation for the year of 2006 - 2020. This data was used to perform a preliminary exploration to determine what, if any, predictive value weather has on crash and injury data when analyzed at the level of incident.
-
+Weather datasets contains about daily weather observations describing daily mean, maximum, and minimum temperature and precipitation for the year of 2006 - 2020 from many locations across Australia. We collected the data using the Visual Crossing Weather API to perform a preliminary exploration to determine what, if any, predictive value weather has on crash and injury data when analyzed at the level of incident. 
