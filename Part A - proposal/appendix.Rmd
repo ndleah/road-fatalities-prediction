@@ -26,7 +26,7 @@ library(foreign)
 #-------------------------------------------------------------------------------------------------
 
 # Set where zip file is to be saved
-file_path <- 'C:/Users/touhi/Desktop/UNI/S4DS/Assessments/Assessment_2/Dataset'
+file_path <- 'XXXXXXX'
 setwd(file_path)
 
 # Download and extract data
