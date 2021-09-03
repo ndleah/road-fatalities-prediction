@@ -61,7 +61,8 @@ This includes:
 
 * `proposal.Rmd`: the summary file of all sections in the report structure (final output)
 * `introduction.Rmd`: The rationale and stakeholders for the project
-* `questions.Rmd`: Research questions section which contains all the questions raised to answer the 
+* `questions.Rmd`: Research questions section which contains all the questions raised to answer the main problem of our project
+* `data.Rmd`: Further understanding about our original datasets before doing analysis
 * `methods.Rmd`: The range of datasets examined as well as those chosen for the analysis 
   * *Include details about how you merged the different datasets and an assessment on whether the granularity of the data sources is sufficient to answer your research questions*
 * `model.Rmd`: The regression modelling techniques to be employed
