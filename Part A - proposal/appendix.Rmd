@@ -82,3 +82,13 @@ data <- left_join(BASE, LOCATION,by='ACCIDENT_NO') %>%
 data
 # remove(PERSON, BASE, ACCIDENT_LOCATION, NODE,LOCATION, ROAD_SURFACE_COND,ACCIDENT)
 
+
+#-------------------------------------------------------------------------------------------------
+# Data Cleaning
+#-------------------------------------------------------------------------------------------------
+data <- data %>% 
+  mutate(FATAL_ACCIDENT = if_else(NO_PERSONS_KILLED>0,"Y","N")) %>% 
+  relocate(FATAL_ACCIDENT ,.after = ACCIDENT_NO)  %>% 
+  relocate(NO_PERSONS_KILLED ,.after = FATAL_ACCIDENT)
+
+  
