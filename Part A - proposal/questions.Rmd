@@ -6,36 +6,35 @@ output: pdf_document
 
 # Research Questions
 
+
 The reason why the study was conducted to identify the following problems.  
 
 * **Human:**
 		
-Are certain age groups more likely to cause accidents?
+Are certain age groups more likely to cause accidents? 
 
-Are certain locations more dangerous more in certain weather?
+Which gender is more likely to cause accident? 
 
-Is alcohol a main cause to car accidents
-		- Alcohol by location
-		- Alcohol by age group
-		
-The level of damage done related to alcohol
-		- number of people injured
+Are certain locations more dangerous more in certain weather? 
 		
 * **Technical:** 
 		
-Are older cars (year of manufacturing) more likely to car crash?		
-Are taxis/buses/bicycles causing accidents?
+Are older cars (year of manufacturing) more likely to car crash? 
 
-If there are more accidents in certain speed zones		
+Are taxis/buses/bicycles causing accidents? 
 
-Passenger seating position / driver is more injured? (Questions on whether driver protecting themselves or the passenger)		
+If there are more accidents in certain speed zones? 
 
-Were they wearing a seatbelts and/or helmet
+Is the passenger or driver seating position more injured?  
+
+Were passengers/driver wearing a seatbelt/helmet? 
 
 * **Environment:**
 
-Are certain cars more dangerous in certain weather conditions?
+Are certain types of vehicles more dangerous in certain weather conditions? 
 
-Could road surface types lead to more accidents?
+Could road surface types lead to more accidents? 
 
-Which time / hour of days likely to have more accidents? Which day of week
+Which time during the day likely to have more accidents?  
+
+Which time during the week likely to have more accidents?  
