@@ -5,3 +5,9 @@ output: pdf_document
 
 # Model
 
+## Classification Model – Generalised Linear Model 
+
+We will first begin training a logistic regression model. The model will be trained on years 2006 – 2017 and tested on years 2018-2020.  A binary variable to identify if there was a fatality in the car accident will be created and set as our target variable. To test several model fits, we will use backward selection method to determine which features should be used in the final model.  
+
+
+# Evaluation

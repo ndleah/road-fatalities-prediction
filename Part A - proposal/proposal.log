@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.1)  3 SEP 2021 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.1)  3 SEP 2021 18:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -404,6 +404,25 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen160
 \Gm@dimlist=\toks25
 )
+(c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fan
+cyvrb.sty
+Package: fancyvrb 2021/08/12 v3.8 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count284
+\FV@InFile=\read2
+\FV@TabBox=\box52
+\c@FancyVerbLine=\count285
+\FV@StepNumber=\count286
+\FV@OutFile=\write3
+)
+(c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/framed/frame
+d.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip54
+\fb@frw=\dimen161
+\fb@frh=\dimen162
+\FrameRule=\dimen163
+\FrameSep=\dimen164
+)
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/gra
 phicx.sty
 Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
@@ -422,17 +441,17 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen161
-\Gin@req@width=\dimen162
+\Gin@req@height=\dimen165
+\Gin@req@width=\dimen166
 )
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.
 sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count284
+\c@float@type=\count287
 \float@exts=\toks26
-\float@box=\box52
+\float@box=\box53
 \@float@everytoks=\toks27
-\@floatcapt=\box53
+\@floatcapt=\box54
 )
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/sectsty/sect
 sty.sty
@@ -450,10 +469,10 @@ LaTeX Warning: Command \underline  has changed.
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/paralist/par
 alist.sty
 Package: paralist 2017/01/22 v2.7 Extended list environments
-\pltopsep=\skip54
-\plpartopsep=\skip55
-\plitemsep=\skip56
-\plparsep=\skip57
+\pltopsep=\skip55
+\plpartopsep=\skip56
+\plitemsep=\skip57
+\plparsep=\skip58
 \pl@lab=\toks28
 )
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/setspace/set
@@ -464,15 +483,15 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 cyhdr.sty
 Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
 rs
-\f@nch@headwidth=\skip58
-\f@nch@O@elh=\skip59
-\f@nch@O@erh=\skip60
-\f@nch@O@olh=\skip61
-\f@nch@O@orh=\skip62
-\f@nch@O@elf=\skip63
-\f@nch@O@erf=\skip64
-\f@nch@O@olf=\skip65
-\f@nch@O@orf=\skip66
+\f@nch@headwidth=\skip59
+\f@nch@O@elh=\skip60
+\f@nch@O@erh=\skip61
+\f@nch@O@olh=\skip62
+\f@nch@O@orh=\skip63
+\f@nch@O@elf=\skip64
+\f@nch@O@erf=\skip65
+\f@nch@O@olf=\skip66
+\f@nch@O@orf=\skip67
 )
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lastpage/las
 tpage.sty
@@ -485,21 +504,21 @@ Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.
 sty
 Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
-\col@sep=\dimen163
-\ar@mcellbox=\box54
-\extrarowheight=\dimen164
+\col@sep=\dimen167
+\ar@mcellbox=\box55
+\extrarowheight=\dimen168
 \NC@list=\toks29
-\extratabsurround=\skip67
-\backup@length=\skip68
-\ar@cellbox=\box55
+\extratabsurround=\skip68
+\backup@length=\skip69
+\ar@cellbox=\box56
 ))
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/natbi
 b.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip69
-\bibsep=\skip70
+\bibhang=\skip70
+\bibsep=\skip71
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count285
+\c@NAT@ctr=\count288
 )
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tocbibind/to
 cbibind.sty
@@ -512,37 +531,37 @@ Package tocbibind Note: Using section or other style headings.
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3
 backend-pdftex.def
 File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count286
-\l__pdf_internal_box=\box56
+\l__color_backend_stack_int=\count289
+\l__pdf_internal_box=\box57
 ) (./proposal.aux)
 \openout1 = `proposal.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Info: Redefining \microtypecontext on input line 78.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Info: Redefining \microtypecontext on input line 118.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 78.
+LaTeX Info: Redefining \showhyphens on input line 118.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -572,7 +591,7 @@ epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 78.
+Package hyperref Info: Link coloring OFF on input line 118.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nam
 eref.sty
@@ -586,11 +605,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count287
+\c@section@level=\count290
 )
-LaTeX Info: Redefining \ref on input line 78.
-LaTeX Info: Redefining \pageref on input line 78.
-LaTeX Info: Redefining \nameref on input line 78.
+LaTeX Info: Redefining \ref on input line 118.
+LaTeX Info: Redefining \pageref on input line 118.
+LaTeX Info: Redefining \nameref on input line 118.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -627,44 +646,44 @@ LaTeX Info: Redefining \nameref on input line 78.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 78.
+(lastpage)             ! on input line 118.
 [1
 
 {c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap
 /pdftex.map}] (./proposal.toc
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 5
 .
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 5
 .
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-4.
+5.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.f
 d
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-4.
+5.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.f
 d
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 4.
+(Font)              <10.95> on input line 5.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 4.
+(Font)              <8> on input line 5.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 4.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+(Font)              <6> on input line 5.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/ums
 a.fd
@@ -674,7 +693,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 -msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/ums
 b.fd
@@ -684,43 +703,70 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 -msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ))
-\tf@toc=\write3
-\openout3 = `proposal.toc'.
+\tf@toc=\write4
+\openout4 = `proposal.toc'.
 
 [2]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-72.
+98.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [1] [2] [3] (./proposal.bbl) [4] [5] [6] 
+) [1]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+60.
+
+(c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [2] [3] (./proposal.bbl) [4] [5]
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+367.
+
+(c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.f
+d
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 386.
+[6] [7]
+Underfull \vbox (badness 10000) detected at line 470
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 470
+ []
+
+[8] [9] [10] [11] [12] 
 AED: lastpage setting LastPage
-[7] (./proposal.aux) )
+[13] (./proposal.aux) )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 65 (\begingroup)
+### semi simple group (level 1) entered at line 105 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 12965 strings out of 480559
- 198972 string characters out of 5901261
- 538934 words of memory out of 5000000
- 30273 multiletter control sequences out of 15000+600000
- 440895 words of font info for 78 fonts, out of 8000000 for 9000
+ 13584 strings out of 480559
+ 208844 string characters out of 5901261
+ 551380 words of memory out of 5000000
+ 30843 multiletter control sequences out of 15000+600000
+ 442795 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 74i,5n,80p,451b,1969s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 74i,5n,80p,642b,1957s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/fonts/
-enc/dvips/lm/lm-ts1.enc}{c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dis
-t/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/te
+enc/dvips/lm/lm-ec.enc}{c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist
+/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/te
 xmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/LEAH NGUYEN/AppData/Roaming
 /TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/LEAH NGUYEN/AppD
 ata/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/LEAH N
 GUYEN/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Us
 ers/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10
-.pfb>
-Output written on proposal.pdf (9 pages, 151927 bytes).
+.pfb><c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/publi
+c/lm/lmtk10.pfb><c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/fonts/
+type1/public/lm/lmtt10.pfb><c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-
+dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on proposal.pdf (15 pages, 247437 bytes).
 PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
- 148 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
- 22633 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 267 PDF objects out of 1000 (max. 8388607)
+ 228 compressed objects within 3 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 22689 words of extra memory for PDF output out of 24883 (max. 10000000)
 

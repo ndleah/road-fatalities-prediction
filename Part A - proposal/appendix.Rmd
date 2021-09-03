@@ -2,31 +2,31 @@
 title: ''
 output: pdf_document
 ---
+
+
+
 # Appendix(ces)
 
-## Appendix A: additional tables 
+## Appendix A: Loading libraries
 
-Insert content for additional tables here.
-
-\newpage
-
-## Appendix B: additional figures
-
-Insert content for additional figures here. 
-
-\newpage
-
-## Appendix C: code
-
+```{r open libraries}
+knitr::opts_chunk$set(eval = FALSE)
 library(tidyverse)
+library(here)
+library(httr)
+library(rjson)
 library(foreign)
+```
 
-#-------------------------------------------------------------------------------------------------
-# Source Car Accident Data 
-#-------------------------------------------------------------------------------------------------
+\newpage
+
+## Appendix B: Road Accident Data Collection Code
+
+```{r message=FALSE, results = 'asis', warning=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
 
 # Set where zip file is to be saved
-file_path <- 'XXXXXXX'
+file_path <- here('data', 'ACCIDENT')
 setwd(file_path)
 
 # Download and extract data
@@ -51,12 +51,86 @@ for (i in 1:length(f)){
     assign(names(f[i]),x)
     remove(x)
   }
+```
 
+\newpage
 
-#-------------------------------------------------------------------------------------------------
-# Combined Data to begin Analysis
-#-------------------------------------------------------------------------------------------------
+## Appendix C: Weather Data Collection Using API
+```{r, results = 'asis'}
+knitr::opts_chunk$set(cache = TRUE)
+# Load postcodes and variables ----
+postcodes <- fromJSON(file = "sample.json") # json with list of postcodes
+RAPIDAPI_KEY = 'd1d5ff8ef9msh03f3fb1acd367a2p14e523jsnf314364cf14f' # can vary with different account
 
+# Create functions to use ----
+request_by_postcode_and_year <- function(postcode, yearStart){
+  base_url <- "https://visual-crossing-weather.p.rapidapi.com/"
+  path <- "history"
+  query_string <- list(
+    startDateTime = sprintf('%s-01-01T00:00:00', yearStart),
+    aggregateHours = '24',
+    location = sprintf('%s,VIC,AUS', postcode),
+    endDateTime = sprintf('%s-12-31T00:00:00', yearStart),
+    contentType = 'csv',
+    shortColumnNames = '0'
+  )
+
+  response <- GET(
+    url = base_url,
+    path = path,
+    add_headers(
+      'x-rapidapi-host' = 'visual-crossing-weather.p.rapidapi.com',
+      'x-rapidapi-key' = RAPIDAPI_KEY
+    ),
+    query = query_string,
+    content_type('application/octet-stream'))
+
+  text <- content(response, "text")
+  return(text);
+}
+
+gather_by_postcodes_and_year <- function(postcodes, year){
+  final_df <- data.frame(matrix(ncol = 0, nrow = 0)) # initialize empty data frame
+  for(postcode in postcodes){
+    csv_response_text = request_by_postcode_and_year(postcode, year)
+    df_from_response <- read_csv(csv_response_text)
+    final_df <- bind_rows(final_df, df_from_response)
+    cat("|") # some feedback on console
+    Sys.sleep(1) # go easy on the api just in case
+  }
+  return(final_df)
+}
+
+create_csv <- function(df, file_name){
+  if(!dir.exists("data")){
+    dir.create("data")
+  }
+
+  write_csv(df, sprintf("data/%s", file_name))
+}
+
+create_csv_data_for_year <- function(year){
+  combined_postcodes_df = gather_by_postcodes_and_year(postcodes, year)
+
+  new_file_name = sprintf("sample_weather_%s.csv", year)
+  create_csv(combined_postcodes_df, new_file_name)
+}
+
+# MAIN LOGIC STARTS HERE ----
+
+# for(year in 2006:2020){
+#   create_csv_data_for_year(year)
+# }
+
+create_csv_data_for_year(2020)
+```
+
+\newpage
+
+## Appendix D: Accident: Merge Datasets
+
+```{r,  results = 'asis'}
+knitr::opts_chunk$set(cache = TRUE)
 # Base Table
 PERSON <- PERSON %>% 
           select(-LICENCE_STATE, -PEDEST_MOVEMENT, -POSTCODE, -TAKEN_HOSPITAL, -EJECTED_CODE)
@@ -80,15 +154,55 @@ data <- left_join(BASE, LOCATION,by='ACCIDENT_NO') %>%
 
 
 data
-# remove(PERSON, BASE, ACCIDENT_LOCATION, NODE,LOCATION, ROAD_SURFACE_COND,ACCIDENT)
-
-
+```
 #-------------------------------------------------------------------------------------------------
 # Data Cleaning
 #-------------------------------------------------------------------------------------------------
+
+```{r, results = 'asis'}
+knitr::opts_chunk$set(cache = TRUE)
 data <- data %>% 
   mutate(FATAL_ACCIDENT = if_else(NO_PERSONS_KILLED>0,"Y","N")) %>% 
   relocate(FATAL_ACCIDENT ,.after = ACCIDENT_NO)  %>% 
   relocate(NO_PERSONS_KILLED ,.after = FATAL_ACCIDENT)
-
+```
   
+\newpage
+
+## Appendix E: Weather Data: Merge Datatsets
+```{r, results = 'asis'}
+knitr::opts_chunk$set(cache = TRUE)
+# get column names
+df <- read_csv(here('data', 'weather_data', 'weather_2006.csv'))
+col_names <- colnames(df)
+
+```{r}
+# define new column names
+added_cols <- c("Postcode", "State", "Country")
+final_cols <- paste0(added_cols, col_names)
+
+# create vector of years in dataset
+years <- c('2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013',
+           '2014', '2015', '2016', '2017', '2018', '2019', '2020A', '2020B')
+
+# create appending_df
+final_weather <- data.frame(matrix(nrow = 0, ncol = 27))
+# apply column names
+names(final_weather) <- final_cols
+
+# loop over years and split postcode column and concat to 1 df
+for (year in as.list(years)){
+  csv_file <- sprintf('weather_%s.csv', year)
+  
+  # Read csv
+  weather <- read_csv(here('data', 'weather_data', csv_file))
+  # split column
+  weather <- weather %>%
+    separate(Address, c("Postcode", "State", "Country"), sep = ',')
+  
+  final_weather <- rbind(final_weather, weather)
+}
+
+
+write_csv(final_weather, here('data', 'weather_data', "clean_weather.csv"))
+```

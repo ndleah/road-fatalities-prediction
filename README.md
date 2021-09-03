@@ -60,13 +60,17 @@ All the `.Rmd` files here correspond to the different sections of the dissertati
 This includes:
 
 * `proposal.Rmd`: the summary file of all sections in the report structure (final output)
-* `introduction.Rmd`: The rationale and stakeholders for the project
-* `questions.Rmd`: Research questions section which contains all the questions raised to answer the main problem of our project
-* `data.Rmd`: Further understanding about our original datasets before doing analysis
-* `methods.Rmd`: The range of datasets examined as well as those chosen for the analysis 
-  * *Include details about how you merged the different datasets and an assessment on whether the granularity of the data sources is sufficient to answer your research questions*
-* `model.Rmd`: The regression modelling techniques to be employed
-* `limitations.Rmd`: Any issues that you anticipate might arise in carrying out the project
+* `introduction.Rmd`: Contain 3 sections that provide rationale, stakeholders and main research question for the project, which are:
+  * `Introduction` 
+  * `Methodology` 
+  * `Business Understanding` 
+* `data.Rmd`: Include details about how you merged the different datasets and an assessment on whether the granularity of the data sources is sufficient to answer your research questions which incude 2 parts:
+  * `Data Understanding`: How we collect the datasets
+  * `Data Preparation`: How we clean and merge datasets
+* `model.Rmd`: The regression modelling techniques to be employed, which contains 2 parts:
+  * `Models`: Provide our suggestions of feasible models used in this project
+  * `Evaluation`: Methods we use to pick the model
+* `limitations.Rmd`: Conclusion and provide any issues that you anticipate might arise in carrying out the project
 * `bibliography.Rmd`: References list
 * `appendix.Rmd`: Contains code samples demonstrating the data acquisition and merger processes that you have used to date.
 

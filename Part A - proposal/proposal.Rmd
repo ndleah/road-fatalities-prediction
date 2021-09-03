@@ -96,20 +96,9 @@ September 5, 2021
 \pagenumbering{arabic}
 
 
-<!---Research Questions-->
-```{r questions, child='questions.Rmd'}
+<!---Data Understanding & Preparation-->
+```{r data, child='data.Rmd'}
 ```
-
-
-<!---Data-->
-```{r data, child = 'data.Rmd'}
-```
-
-
-<!---Methods-->
-```{r methods, child = 'methods.Rmd'}
-```
-
 
 <!---Model-->
 ```{r model, child = 'model.Rmd'}

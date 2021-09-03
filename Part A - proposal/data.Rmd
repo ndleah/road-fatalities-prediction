@@ -2,12 +2,26 @@
 title: ''
 output: pdf_document
 ---
-# Data
+
+
+# Data Understanding
 
 ## Accident 
 
-A data set with anonymized information from government of all road accidents in Victoria, Australia from 2006 until 2020 is used \citep*{department-of-transport-2006}. The data provided allows users to analyse Victorian fatal and injury crash data based on time, location, conditions, crash type, road user type, object hit etc.
+Accident datasets are datasets with anonymized information from government of all road accidents in Victoria, Australia from 2006 until 2020 is used \citep*{department-of-transport-2006}. The data provided allows users to analyse Victorian fatal and injury crash data based on time, location, conditions, crash type, road user type, object hit etc. 
 
-## Weather
+Technique: R, EDA 
+
+## Weather 
 
 Weather datasets contains about daily weather observations describing daily mean, maximum, and minimum temperature and precipitation for the year of 2006 - 2020 from many locations across Australia. We collected the data using the Visual Crossing Weather API to perform a preliminary exploration to determine what, if any, predictive value weather has on crash and injury data when analyzed at the level of incident. 
+
+# Data Preparation
+
+## Merging accident data 
+
+The car accident data will be sourced directly from the Victorian Government data website (Appendix 1). Not all files that are extracted from the website will be used in the analysis. After selecting specific files by their file name, they will be loaded into separate variables ready to be merged. The `PERSON` dataset has been selected as the base file because it holds the largest amount of unique information. 
+
+## Merging weather data 
+
+The visual crossing weather API has a query which can search by location including the use of postcode. Using a collection of all the distinct postcodes from the node dataset, we can then make an API request for the address. As the API response contains a list of records for the date range specified in its query, we can then match each of our accident records with the weather using the postcode for location and the date. 
