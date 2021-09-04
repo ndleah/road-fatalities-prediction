@@ -46,11 +46,11 @@ for (i in 1:length(f)){
 nodes <- read_csv(here("data/ACCIDENT/NODE.csv"))
 postcodes<-unique(nodes$POSTCODE_NO)
 postcodesJson <- toJSON(postcodes, indent = 0, method = "C")
-write(postcodesJson, "postcodes.json")
+write(postcodesJson, "data/ACCIDENT/postcodes.json")
 
 
 # Load postcodes  ----
-postcodes <- fromJSON(file = "sample.json") # json with list of postcodes
+postcodes <- fromJSON(file = "data/ACCIDENT/postcodes.json") # json with list of postcodes
 
 # API Key ---
 RAPIDAPI_KEY = 'd1d5ff8ef9msh03f3fb1acd367a2p14e523jsnf314364cf14f' 
@@ -97,7 +97,7 @@ gather_by_postcodes_and_year <- function(postcodes, year){
 }
 
 
-# Create a function to check whether the data already exists ----
+# Create a function to create csv from dataframe, creating data folder if it doesn't exist ----
 create_csv <- function(df, file_name){
   if(!dir.exists("data")){
     dir.create("data")
@@ -119,9 +119,11 @@ create_csv_data_for_year <- function(year){
 
 
 # Extract weather API data by year and place into csv ----
+if(!dir.exists("data/weather_data")){ # don't run to gather weather data if folder already exists
  for(year in 2006:2020){
     create_csv_data_for_year(year)
  }
+}
 
 
 # Read consolidated API weather data place into one csv file ----
