@@ -182,7 +182,7 @@ remove(PERSON, ACCIDENT, ROAD_SURFACE_COND, ACCIDENT_LOCATION,NODE,ATMOSPHERIC_C
        WEATHER_DATA, BASE)
 
 
-# Reorder Variables ----
+# Reorder columns ----
 data <- data[,c(1,18,19,22,23,2,4:9,12,34:39,21,25,42:44,72,
                 74:76,15,50:53,62,73,46,71,77,78,31,32,79:87)]
 
