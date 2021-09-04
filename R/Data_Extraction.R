@@ -193,7 +193,7 @@ data<- data %>%
         relocate(FATAL_ACCIDENT, .after = ACCIDENT_NO )
 
 
-# data is ready for EDA ----
+# data is ready for EDA -----
 data 
 
 
