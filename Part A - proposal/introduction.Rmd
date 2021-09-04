@@ -8,10 +8,13 @@ header-includes:
 
 # Introduction
 
-Death from road traffic crashes continue to be major global public health problems across Australia \citep*{RN2}. A road traffic fatality results from a complex interaction of **human**, **technical** and **environmental** factors, and different causes behind road vehicle crashes require different measures to reduce their impacts.  
+Deaths from road traffic crashes continue to be major public health problem across Australia \citep*{RN2}. Road traffic fatalities result from a complex interaction of human, technical and environmental factors, and different causes behind road vehicle crashes require different measures to reduce their impacts.
 
-# Methodology 
+## Stakeholders
 
+The findings are relevant in the context of impact-based warnings for both road users, road maintenance and traffic management authorities, as well as emergency services. 
+
+## Methodology
 CRISP-DM methodology will be used for this project which is used in most of the data science projects in the industry \citep*{wijaya-2021}. The six steps are as follows: 
 
 * Business Understanding 
@@ -26,9 +29,5 @@ CRISP-DM methodology will be used for this project which is used in most of the 
 
 * Deployment (Not in the scope of this assignment)
 
-
-# Business Understanding 
-
-Our group study assesses how strongly the variation between some environmental factors and the increased risk of vehicle crash-related mortality in Victoria, Australia. The findings are relevant in the context of impact-based warnings for both road users, road maintenance and traffic management authorities, as well as rescue forces.  
-
-On the one hand, this is relevant for raising the effectiveness of road weather warning services, while on the other hand, it may help rescue and medical services to project the number of emergencies in designated regions in case weather forecasts foresee bad conditions for road transport. 
+## Business Understanding (Research question)
+Our group study assesses how strongly the variation between some environmental factors and the increased risk of vehicle crash-related mortality in Victoria, Australia. Furthermore, we will use machine learning approaches to investigate the factors which cause a death in an accident this area.

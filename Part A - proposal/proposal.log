@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.1)  3 SEP 2021 18:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.1)  4 SEP 2021 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -651,39 +651,39 @@ Package lastpage Info: Please have a look at the pageslts package at
 
 {c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap
 /pdftex.map}] (./proposal.toc
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 5
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
 .
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 5
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
 .
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-5.
+2.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.f
 d
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-5.
+2.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.f
 d
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 5.
+(Font)              <10.95> on input line 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 5.
+(Font)              <8> on input line 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 5.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
+(Font)              <6> on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/ums
 a.fd
@@ -693,7 +693,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 -msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/ums
 b.fd
@@ -707,53 +707,69 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 \openout4 = `proposal.toc'.
 
 [2]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-98.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
+05.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [1]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-60.
+) [1] [2] [3] [4] [5] (./proposal.bbl) [6]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+01.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [2] [3] (./proposal.bbl) [4] [5]
+)
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-367.
+415.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.f
 d
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 386.
-[6] [7]
-Underfull \vbox (badness 10000) detected at line 470
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 430.
+[7]
+Underfull \vbox (badness 10000) detected at line 563
  []
 
 
-Underfull \vbox (badness 10000) detected at line 470
+Underfull \vbox (badness 10000) detected at line 563
  []
 
-[8] [9] [10] [11] [12] 
+[8]
+Underfull \vbox (badness 10000) detected at line 563
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 563
+ []
+
+[9]
+Underfull \vbox (badness 10000) detected at line 563
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 563
+ []
+
+[10] 
 AED: lastpage setting LastPage
-[13] (./proposal.aux) )
+[11] (./proposal.aux) )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 105 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 13584 strings out of 480559
- 208844 string characters out of 5901261
- 551380 words of memory out of 5000000
- 30843 multiletter control sequences out of 15000+600000
- 442795 words of font info for 87 fonts, out of 8000000 for 9000
+ 13588 strings out of 480559
+ 208921 string characters out of 5901261
+ 575997 words of memory out of 5000000
+ 30844 multiletter control sequences out of 15000+600000
+ 443044 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 74i,5n,80p,642b,1957s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 74i,5n,80p,639b,1955s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/fonts/
-enc/dvips/lm/lm-ec.enc}{c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist
-/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/te
+enc/dvips/lm/lm-ts1.enc}{c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dis
+t/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/te
 xmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/LEAH NGUYEN/AppData/Roaming
 /TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/LEAH NGUYEN/AppD
 ata/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/LEAH N
@@ -763,10 +779,10 @@ ers/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10
 c/lm/lmtk10.pfb><c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/fonts/
 type1/public/lm/lmtt10.pfb><c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-
 dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on proposal.pdf (15 pages, 247437 bytes).
+Output written on proposal.pdf (13 pages, 249511 bytes).
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
- 228 compressed objects within 3 object streams
- 59 named destinations out of 1000 (max. 500000)
- 22689 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 268 PDF objects out of 1000 (max. 8388607)
+ 231 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 22681 words of extra memory for PDF output out of 24883 (max. 10000000)
 

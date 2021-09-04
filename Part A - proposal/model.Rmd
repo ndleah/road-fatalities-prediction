@@ -7,7 +7,23 @@ output: pdf_document
 
 ## Classification Model – Generalised Linear Model 
 
-We will first begin training a logistic regression model. The model will be trained on years 2006 – 2017 and tested on years 2018-2020.  A binary variable to identify if there was a fatality in the car accident will be created and set as our target variable. To test several model fits, we will use backward selection method to determine which features should be used in the final model.  
+To solve this problem a logistic regression model will be built. The years 2006 – 2016 will be used as a training set and years 2017-2018 will be used as the testing set, with 2020 saved for cross validation. A binary variable to identify if there was a fatality in the car accident will be created and set as our target variable. To test several model fits, we will use backward selection method to determine which features are contributing factors to causing or preventing fatalities and should be used in the final model.  The model accuracy goal is set to be above 80%.
 
 
-# Evaluation
+## Evaluation
+
+To evaluate each model fit the following evaluation methods will be used: 
+
+* **Confusion Matrix:** A display of the record counts by their predicted and actual classification \citep*{doi:10.1080/00401706.2021.1904738}.
+
+* **Accuracy:** (TruePositve + TrueNegative) / SampleSize \citep*{doi:10.1080/00401706.2021.1904738}. 
+
+* **Sensitivity:** The percentage of all 1’s that are correctly classified as 1’s \citep*{doi:10.1080/00401706.2021.1904738}. 
+
+* **Specificity:** The percentage of all 0’s correctly classified as 0’s \citep*{doi:10.1080/00401706.2021.1904738}. 
+
+* **Precision:** The percent (proportion) of predicted 1s that are actually 1s \citep*{doi:10.1080/00401706.2021.1904738}. 
+
+* **ROC Curve/AUC:** A plot of sensitivity versus specificity \citep*{doi:10.1080/00401706.2021.1904738}. 
+
+* **Lift:** A measure of how effective the model is at identifying rare cases at different probability cutoffs \citep*{doi:10.1080/00401706.2021.1904738}. 

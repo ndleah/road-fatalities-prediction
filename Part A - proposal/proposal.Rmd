@@ -95,15 +95,19 @@ September 5, 2021
 ```
 \pagenumbering{arabic}
 
+\newpage
 
 <!---Data Understanding & Preparation-->
 ```{r data, child='data.Rmd'}
 ```
 
+\newpage
+
 <!---Model-->
 ```{r model, child = 'model.Rmd'}
 ```
 
+\newpage
 
 <!---Limitations-->
 ```{r limitations, child = 'limitations.Rmd'}

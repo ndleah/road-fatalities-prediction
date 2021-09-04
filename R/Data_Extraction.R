@@ -1,6 +1,6 @@
-# -----------------------------------------------------------------------------------------------
+# -----------------------------------
 # Libraries
-#------------------------------------------------------------------------------------------------
+#------------------------------------
 
 library(tidyverse)
 library(foreign)
@@ -9,23 +9,25 @@ library(rjson)
 library(here)
 library(lubridate)
 
-#-------------------------------------------------------------------------------------------------
+#-----------------------------------------
 # Source Car Accident Data from Vicroads
-#-------------------------------------------------------------------------------------------------
+#-----------------------------------------
 
 # Set where zip file will be saved locally ----
 file_path <- 'XXXXXXX'
 setwd(file_path)
 
 # Download and extract data  ----
-url <- 'https://vicroadsopendatastorehouse.vicroads.vic.gov.au/opendata/Road_Safety/ACCIDENT.zip'
+url <- 
+'https://vicroadsopendatastorehouse.vicroads.vic.gov.au/opendata/Road_Safety/ACCIDENT.zip'
 download.file(url, 'CarAccidentsData.zip')
 unzip('CarAccidentsData.zip')
   
 
 # Place selected files into variables  ----
-f <- file.path(file_path, c("ACCIDENT.csv","ACCIDENT_LOCATION.csv", 'NODE.csv','PERSON.csv',
-                            "ATMOSPHERIC_COND.csv", 'ROAD_SURFACE_COND.csv','VEHICLE.csv'))
+f <- file.path(file_path, c("ACCIDENT.csv","ACCIDENT_LOCATION.csv", 
+                            'NODE.csv','PERSON.csv',"ATMOSPHERIC_COND.csv", 
+                            'ROAD_SURFACE_COND.csv','VEHICLE.csv'))
 
 # Create names for the variables ----
 names(f) <- gsub(".*/(.*)\\..*", "\\1", f)
@@ -38,9 +40,9 @@ for (i in 1:length(f)){
     remove(x)
   }
 
-#-------------------------------------------------------------------------------------------------
+#------------------------------------------------
 # Source weather and postcode data from API
-#-------------------------------------------------------------------------------------------------
+#------------------------------------------------
 
 # Source Post Code Data ---- 
 nodes <- read_csv(here("data/ACCIDENT/NODE.csv"))
@@ -50,7 +52,8 @@ write(postcodesJson, "data/ACCIDENT/postcodes.json")
 
 
 # Load postcodes  ----
-postcodes <- fromJSON(file = "data/ACCIDENT/postcodes.json") # json with list of postcodes
+postcodes <- fromJSON(
+  file = "data/ACCIDENT/postcodes.json") # json with list of postcodes
 
 # API Key ---
 RAPIDAPI_KEY = 'd1d5ff8ef9msh03f3fb1acd367a2p14e523jsnf314364cf14f' 
@@ -85,7 +88,8 @@ request_by_postcode_and_year <- function(postcode, yearStart){
 
 # Create function to combine API requests ----
 gather_by_postcodes_and_year <- function(postcodes, year){
-  final_df <- data.frame(matrix(ncol = 0, nrow = 0)) # initialize empty data frame
+  final_df <- data.frame(
+    matrix(ncol = 0, nrow = 0)) # initialize empty data frame
   for(postcode in postcodes){
     csv_response_text = request_by_postcode_and_year(postcode, year)
     df_from_response <- read_csv(csv_response_text)
@@ -97,7 +101,7 @@ gather_by_postcodes_and_year <- function(postcodes, year){
 }
 
 
-# Create a function to create csv from dataframe, creating data folder if it doesn't exist ----
+# Create a function to create csv from df, data folder if it doesn't exist ----
 create_csv <- function(df, file_name){
   if(!dir.exists("data")){
     dir.create("data")
@@ -119,7 +123,8 @@ create_csv_data_for_year <- function(year){
 
 
 # Extract weather API data by year and place into csv ----
-if(!dir.exists("data/weather_data")){ # don't run to gather weather data if folder already exists
+if(!dir.exists("data/weather_data")){ # don't run to gather weather data 
+                                      # if folder already exists
  for(year in 2006:2020){
     create_csv_data_for_year(year)
  }
@@ -153,9 +158,9 @@ WEATHER_DATA$Datetime <- as.Date(WEATHER_DATA$Datetime, format =  "%m/%d/%Y")
 WEATHER_DATA
 
 
-#-------------------------------------------------------------------------------------------------
+#----------------------------------------------
 # Combined All Data To Begin Analysis
-#-------------------------------------------------------------------------------------------------
+#----------------------------------------------
 
 # Combine Car Accident Data ----
 BASE <-  left_join(PERSON, ACCIDENT, by='ACCIDENT_NO') %>% 
@@ -164,11 +169,15 @@ BASE <-  left_join(PERSON, ACCIDENT, by='ACCIDENT_NO') %>%
             left_join(x=., NODE, by='ACCIDENT_NO') %>% 
               left_join(x=.,ATMOSPHERIC_COND,by='ACCIDENT_NO') %>% 
                 left_join(x=., VEHICLE %>% 
-                                  select(ACCIDENT_NO,VEHICLE_ID, VEHICLE_YEAR_MANUF, 
-                                          Road_Surface_Type_Desc, VEHICLE_BODY_STYLE, 
-                                          VEHICLE_MAKE, VEHICLE_MODEL, NO_OF_CYLINDERS, 
-                                          TOTAL_NO_OCCUPANTS), 
-                          by= c('ACCIDENT_NO'='ACCIDENT_NO','VEHICLE_ID'='VEHICLE_ID' ))
+                                  select(ACCIDENT_NO,VEHICLE_ID, 
+                                         VEHICLE_YEAR_MANUF, 
+                                         Road_Surface_Type_Desc, 
+                                         VEHICLE_BODY_STYLE, 
+                                         VEHICLE_MAKE, VEHICLE_MODEL, 
+                                         NO_OF_CYLINDERS, 
+                                         TOTAL_NO_OCCUPANTS), 
+                          by= c('ACCIDENT_NO'='ACCIDENT_NO',
+                                'VEHICLE_ID'='VEHICLE_ID' ))
 
 
 # Clean and convert date column ----
@@ -176,12 +185,13 @@ BASE$ACCIDENTDATE <- str_extract(BASE$ACCIDENTDATE, "\\d+/\\d+/\\d+")
 BASE$ACCIDENTDATE <- dmy(BASE$ACCIDENTDATE)
 
 # Combine base data with API Weather data ----
-data <- left_join(BASE, WEATHER_DATA, by= c('POSTCODE_NO'='Postcode','ACCIDENTDATE'='Datetime'))
+data <- left_join(BASE, WEATHER_DATA, by= c('POSTCODE_NO'='Postcode',
+                                            'ACCIDENTDATE'='Datetime'))
 
 
 # Clean up unused variables ----
-remove(PERSON, ACCIDENT, ROAD_SURFACE_COND, ACCIDENT_LOCATION,NODE,ATMOSPHERIC_COND,VEHICLE, 
-       WEATHER_DATA, BASE)
+remove(PERSON, ACCIDENT, ROAD_SURFACE_COND, ACCIDENT_LOCATION,NODE,
+       ATMOSPHERIC_COND,VEHICLE, WEATHER_DATA, BASE)
 
 
 # Reorder columns ----

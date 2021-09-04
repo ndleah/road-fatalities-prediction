@@ -6,22 +6,30 @@ output: pdf_document
 
 # Data Understanding
 
-## Accident 
+## Datasets examined and their analysis 
+Various sources of data were examined and explored for the topic related to car accidents. We looked into car accidents historical data of Victoria, as well as NSW. We also looked into more peripheral data that are theorized to be related to car accidents, such as data of weather and speed camera presence. The following datasets were chosen for analysis. 
 
-Accident datasets are datasets with anonymized information from government of all road accidents in Victoria, Australia from 2006 until 2020 is used \citep*{department-of-transport-2006}. The data provided allows users to analyse Victorian fatal and injury crash data based on time, location, conditions, crash type, road user type, object hit etc. 
+### Accident data from Victoria 
+Accident datasets are datasets with anonymized information from government of all road accidents in Victoria, Australia from 2006 until 2020 is used \citep*{department-of-transport-2006}. The data provided allows users to analyse Victorian fatal and injury crash data based on time, location, conditions, crash type, road user type, object hit etc.  
 
-Technique: R, EDA 
-
-## Weather 
+### Weather 
 
 Weather datasets contains about daily weather observations describing daily mean, maximum, and minimum temperature and precipitation for the year of 2006 - 2020 from many locations across Australia. We collected the data using the Visual Crossing Weather API to perform a preliminary exploration to determine what, if any, predictive value weather has on crash and injury data when analyzed at the level of incident. 
 
-# Data Preparation
+### Analysis 
 
-## Merging accident data 
+The dataset will be explored, summarized, cleaned and visualized using various libraries in R. We will then prepare the final dataset for modelling.
 
-The car accident data will be sourced directly from the Victorian Government data website (Appendix 1). Not all files that are extracted from the website will be used in the analysis. After selecting specific files by their file name, they will be loaded into separate variables ready to be merged. The `PERSON` dataset has been selected as the base file because it holds the largest amount of unique information. 
+\newpage
 
-## Merging weather data 
+# Data Preparation 
 
-The visual crossing weather API has a query which can search by location including the use of postcode. Using a collection of all the distinct postcodes from the node dataset, we can then make an API request for the address. As the API response contains a list of records for the date range specified in its query, we can then match each of our accident records with the weather using the postcode for location and the date. 
+## Accident data 
+
+The car accident data will be sourced directly from the Victorian Government data website. Not all files that are extracted from the website will be used in the analysis. After selecting specific files by their file name, they will be loaded into separate variables ready to be merged. What’s considered to be the initial relevant variables are kept in the final data for analysis, though we may keep them in case for future analysis. And from here we can then attempt to find further interesting information from exploratory data analysis (EDA) techniques, such as to find correlation using correlation matrixes, scatterplots and contingency tables. 
+
+## Weather data 
+The visual crossing weather API has a query which can search by location including the use of postcode. Using a collection of all the distinct postcodes from the node dataset, we can then make an API request for the address. As the API response contains a list of records for the date range specified in its query, we can then match each of our accident records with the weather using the postcode for location and the date. As the process of scraping data from the API can be long, the program has broken down the collection to collect the weather data for all the suburbs per year. Therefore, a process of merging the weather data of each year and splitting the columns of the address in order to match by postcode, and finally matching the postcode was done. This will also be part of the final data for EDA. 
+
+## Addressing the rare class problem 
+Within our analysis, we may encounter "the rare class problem". 98% of the accidents in our data have no fatalities and only 2% resulted in a death. So, the model could predict an outcome mostly as no death even when it should end up in a death. If this problem is encountered, we will try to reduce our sample to make the data set more balanced, as well as using the lift method.
