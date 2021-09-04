@@ -55,7 +55,7 @@ postcodes <- fromJSON(file = "sample.json") # json with list of postcodes
 # API Key ---
 RAPIDAPI_KEY = 'd1d5ff8ef9msh03f3fb1acd367a2p14e523jsnf314364cf14f' 
 
-# Create functions to use with ----
+# Create a function to be used to call API ----
 request_by_postcode_and_year <- function(postcode, yearStart){
   base_url <- "https://visual-crossing-weather.p.rapidapi.com/"
   path <- "history"
