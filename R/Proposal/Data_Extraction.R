@@ -14,7 +14,7 @@ library(lubridate)
 #-----------------------------------------
 
 # Set where zip file will be saved locally ----
-file_path <- 'XXXXXXX'
+file_path <- here("data", "ACCIDENT")
 setwd(file_path)
 
 # Download and extract data  ----
@@ -208,5 +208,7 @@ data<- data %>%
 # data is ready for EDA -----
 data 
 
+# write a csv file for data storage
+write_csv(data, here('data', "Car_Accident_Data.csv"))
 
 
