@@ -140,6 +140,8 @@ WEATHER_DATA <- list.files(pattern = '*.csv') %>%
 # Remove Spaces from heading names ----
 names(WEATHER_DATA) <- gsub(' ', '', names(WEATHER_DATA))
 
+# Split the Address into three ----
+WEATHER_DATA <- WEATHER_DATA %>% separate(Address, c("Postcode", "State", "Country"), ",")
 
 # Convert columns with numerical data to correct data type ----
 WEATHER_DATA[,c(1,5:20)] <- sapply(WEATHER_DATA[,c(1,5:20)], as.numeric)
