@@ -47,3 +47,4 @@ vignettes/*.pdf
 ### R.Bookdown Stack ###
 # R package: bookdown caching files
 /*_files/
+data/Car_Accident_Data.csv
