@@ -1,9 +1,9 @@
 library(tidyverse)
 library(ggplot2)
 library(scales)
+library(here)
 
-
-file_path <- 'XXXXX'
+file_path <- here("data")
 setwd(file_path)
 getwd()
 df <- read_csv('Car_Accident_Data.csv')
@@ -64,7 +64,6 @@ categorical_chart <- function (data, axis_x_or_y, bar_fill){
     geom_bar(position='stack', stat="identity",na.rm = TRUE, width = 0.5) +
     scale_fill_brewer(palette = "Set2") 
 }
-
 #------------------------------------------------------------------------------------------
 # Basic Bar Charts using categorical_chart Function
 #------------------------------------------------------------------------------------------
