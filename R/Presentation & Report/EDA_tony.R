@@ -46,3 +46,27 @@ ggplot(car_accidents) + geom_boxplot(aes(y=visibility, x=fatal_accident)) + face
 
 # Fatalities to visibility by each accident type ----
 ggplot(car_accidents) + geom_boxplot(aes(y=visibility, x=fatal_accident)) + facet_wrap(~accident_type_desc)
+
+#Accidents by speed zone ----
+#change into categorical
+car_accidents$speed_zone <- as.factor(car_accidents$speed_zone)
+counts <- table(car_accidents$speed_zone)
+barplot(counts, main="Accidents By Speed Zone",
+        xlab="Speed Zone") 
+
+# Fatal accident proportions by speed zone ----
+grouped2 <- car_accidents %>%
+  group_by(speed_zone) %>%
+  summarize(total_accidents_speedzone=n_distinct(accident_no))
+
+grouped <- car_accidents %>%
+  group_by(speed_zone, fatal_accident) %>%
+  summarize(total_accidents_speedzone_fatalities=n_distinct(accident_no))
+
+merged_grouped <- left_join(x = grouped, y = grouped2, by = 'speed_zone')
+
+merged_grouped %>% mutate(fatal_proportion = total_accidents_speedzone_fatalities/total_accidents_speedzone) %>%
+  subset(fatal_accident == "Y") %>%
+  ggplot(aes(x = speed_zone, y = fatal_proportion)) +
+  geom_bar(stat="identity", position="dodge") +
+  ggtitle("Fatality proportion by speed zone")
