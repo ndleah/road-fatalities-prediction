@@ -103,12 +103,24 @@ fatality_summary_year %>%
 accident_summary_year <- car_accidents %>%
   mutate(year = year(accident_date)) %>%
   group_by(year) %>%
-  summarize(total_accident_fatalities=n_distinct(accident_no))
+  summarize(total_accidents=n_distinct(accident_no))
 
 accident_summary_year %>% 
-  ggplot(aes(x = year, y = total_accident_fatalities)) +
+  ggplot(aes(x = year, y = total_accidents)) +
   geom_line() + 
   ggtitle("Total Accidents by Year") +
   xlab("Year") + ylab("Total Accidents") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+  scale_x_continuous(breaks = fatality_summary_year$year)
+
+# Proportion of fatalities (total fatal accidents / total accidents)
+merged_summary <- left_join(x = fatality_summary_year, y = accident_summary_year, by = 'year')
+
+merged_summary %>%
+  mutate(fatal_proportion = total_accident_fatalities/total_accidents) %>%
+  ggplot(aes(x = year, y = fatal_proportion)) +
+  geom_line() + 
+  ggtitle("Fatal Accident Proportions by Year") +
+  xlab("Year") + ylab("Fatal Accident Proportions") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
   scale_x_continuous(breaks = fatality_summary_year$year)
