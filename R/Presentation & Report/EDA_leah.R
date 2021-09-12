@@ -1,8 +1,8 @@
 library(tidyverse) #data manipulation
 library(here)
-library(dplyr)
-library(ggplot2)
-library(patchwork)
+library(dplyr) # EDA
+library(ggplot2) # for data visualization
+library(patchwork) # for joining 2 plots together
 
 # Load the dataset
 accidents <- read_csv(here('data', 'car_accident.csv'))
@@ -22,8 +22,7 @@ fatality_accidents <- accidents %>% filter(Inj_Level_Desc=="Fatality")
 dim(fatality_accidents)
 
 # add columns for Accident hours
-fatality_accidents <- format(strptime(fatality_accidents$ACCIDENTTIME, "%H:%M"), "%H:00")
-
+fatality_accidents$ACCIDENT_HOUR <- format(strptime(fatality_accidents$ACCIDENTTIME, "%H:%M"), "%H:00")
 # order Day Of Week chronically
 fatality_accidents$Day_Week_Description <- ordered( 
   fatality_accidents$Day_Week_Description, levels=c("Monday", "Tuesday", "Wednesday", 
@@ -95,9 +94,9 @@ weekend_hours <- fatality_accidents %>%
                 filter(Day_Week_Description %in% c("Saturday", "Sunday")) %>%
                 ggplot() +
                 aes(x = ACCIDENT_HOUR) +
-                geom_bar(fill = "#FF0000") +
+                geom_bar(fill = "#B22222") +
                 labs(
-                  x = "Weekdays",
+                  x = "Hours",
                   y = "# of death",
                   title = "Number of Fatality During Weekend Hours"
                 ) +
@@ -117,11 +116,11 @@ inweek_hours <- fatality_accidents %>%
                 filter(!(Day_Week_Description %in% c("Sunday", "Saturday"))) %>%
                 ggplot() +
                 aes(x = ACCIDENT_HOUR) +
-                geom_bar(fill = "#F45555") +
+                geom_bar(fill = "#B22222") +
                 labs(
                   x = "Hours",
                   y = "# of death",
-                  title = "Number of Fatality During In-week Hours"
+                  title = "Number of Fatality During Weekdays Hours"
                 ) +
                 coord_flip() +
                 ggthemes::theme_tufte() +
@@ -144,7 +143,7 @@ inweek_hours + weekend_hours
 driver_ag <- fatality_accidents %>%
             filter(Road_User_Type_Desc %in% 
                      "Drivers") %>% 
-            filter(!(Age_Group %in% c("13-15", "unknown")))
+            filter(!(Age_Group %in% c("13-15", "16-17", "unknown")))
             
 driver_ag %>%  
   ggplot() +
