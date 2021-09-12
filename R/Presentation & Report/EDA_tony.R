@@ -70,14 +70,14 @@ merged_grouped %>% mutate(fatal_proportion = total_accidents_speedzone_fatalitie
   geom_bar(stat="identity", position="dodge") +
   ggtitle("Fatality proportion by speed zone")
 
-# Fatal accidents by year ----
+# BY YEAR - Fatal accidents by year ----
 car_accidents$accident_date <- as.Date(car_accidents$accident_date)
 typeof(car_accidents$accident_date)
 
 fatality_summary_year <- car_accidents %>%
   subset(inj_level_desc == "Fatality") %>%
   mutate(year = year(accident_date)) %>%
-  group_by(year, inj_level_desc) %>%
+  group_by(year) %>%
   summarize(total_accident_fatalities=n_distinct(accident_no))
 
 #line graph
@@ -95,5 +95,20 @@ fatality_summary_year %>%
   geom_bar(stat="identity", position="dodge") + 
   ggtitle("Fatal Accidents by Year") +
   xlab("Year") + ylab("Total Accidents with Fatalities") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+  scale_x_continuous(breaks = fatality_summary_year$year)
+
+# Fatal accident proportion by year
+
+accident_summary_year <- car_accidents %>%
+  mutate(year = year(accident_date)) %>%
+  group_by(year) %>%
+  summarize(total_accident_fatalities=n_distinct(accident_no))
+
+accident_summary_year %>% 
+  ggplot(aes(x = year, y = total_accident_fatalities)) +
+  geom_line() + 
+  ggtitle("Total Accidents by Year") +
+  xlab("Year") + ylab("Total Accidents") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
   scale_x_continuous(breaks = fatality_summary_year$year)
