@@ -121,6 +121,82 @@ merged_summary %>%
   ggplot(aes(x = year, y = fatal_proportion)) +
   geom_line() + 
   ggtitle("Fatal Accident Proportions by Year") +
-  xlab("Year") + ylab("Fatal Accident Proportions") +
+  xlab("Year") + ylab("Total Fatal Accident / Total Accidents") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
   scale_x_continuous(breaks = fatality_summary_year$year)
+
+# Multiple lines for age group of drivers
+fatality_agegroup_summary_year <- car_accidents %>%
+  subset(inj_level_desc == "Fatality" & road_user_type_desc == "Drivers" & age_group != "unknown") %>%
+  mutate(year = year(accident_date)) %>%
+  group_by(year, age_group) %>%
+  summarize(total_accident_fatalities=n_distinct(accident_no))
+
+accident_agegroup_summary_year <- car_accidents %>%
+  subset(road_user_type_desc == "Drivers" & age_group != "unknown") %>%
+  mutate(year = year(accident_date)) %>%
+  group_by(year, age_group) %>%
+  summarize(total_accidents=n_distinct(accident_no))
+
+fatality_agegroup_summary_year %>% 
+  ggplot(aes(x = year, y = total_accident_fatalities, color = age_group)) +
+  geom_line() + 
+  ggtitle("Total Fatalities by Year") +
+  xlab("Year") + ylab("Total Fatalities") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+  scale_x_continuous(breaks = accident_agegroup_summary_year$year)
+
+accident_agegroup_summary_year %>% 
+  ggplot(aes(x = year, y = total_accidents, color = age_group)) +
+  geom_line() + 
+  ggtitle("Total Accidents by Year") +
+  xlab("Year") + ylab("Total Accidents") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+  scale_x_continuous(breaks = accident_agegroup_summary_year$year)
+
+# What a mess!
+
+
+# ROAD USER TYPE BY YEAR
+
+# fatalities
+fatality_roaduser_summary_year <- car_accidents %>%
+  subset(inj_level_desc == "Fatality" & road_user_type_desc != "Unknown") %>%
+  mutate(year = year(accident_date)) %>%
+  group_by(year, road_user_type_desc) %>%
+  summarize(total_accident_fatalities=n_distinct(accident_no))
+
+fatality_roaduser_summary_year %>% 
+  ggplot(aes(x = year, y = total_accident_fatalities, color = road_user_type_desc)) +
+  geom_line() + 
+  ggtitle("Total Fatalities by Year for different Road Users") +
+  xlab("Year") + ylab("Total Fatalities") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+  scale_x_continuous(breaks = fatality_roaduser_summary_year$year)
+
+# accidents
+accident_roaduser_summary_year <- car_accidents %>%
+  subset(road_user_type_desc != "Unknown") %>%
+  mutate(year = year(accident_date)) %>%
+  group_by(year, road_user_type_desc) %>%
+  summarize(total_accidents=n_distinct(accident_no))
+
+accident_roaduser_summary_year %>% 
+  ggplot(aes(x = year, y = total_accidents, color = road_user_type_desc)) +
+  geom_line() + 
+  ggtitle("Total Accidents by Year for different Road Users") +
+  xlab("Year") + ylab("Total Accidents") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+  scale_x_continuous(breaks = accident_roaduser_summary_year$year)
+
+# fatality out of total accidents
+merged_summary_roadusers <- left_join(x = fatality_roaduser_summary_year, y = accident_roaduser_summary_year, by = c("year", "road_user_type_desc"))
+
+merged_summary_roadusers %>%
+  mutate(fatal_ratio = total_accident_fatalities / total_accidents) %>%
+  ggplot(aes(x = year, y = fatal_ratio, color = road_user_type_desc)) +
+  geom_line() + 
+  ggtitle("Fatality ratio by year for different Road Users") +
+  xlab("Year") + ylab("Total Fatalities / Total Accidents") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+  scale_x_continuous(breaks = accident_roaduser_summary_year$year)
