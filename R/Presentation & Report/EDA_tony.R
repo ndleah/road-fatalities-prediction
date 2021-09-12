@@ -60,13 +60,13 @@ grouped2 <- car_accidents %>%
   summarize(total_accidents_speedzone=n_distinct(accident_no))
 
 grouped <- car_accidents %>%
-  group_by(speed_zone, fatal_accident) %>%
+  group_by(speed_zone, inj_level_desc) %>%
   summarize(total_accidents_speedzone_fatalities=n_distinct(accident_no))
 
 merged_grouped <- left_join(x = grouped, y = grouped2, by = 'speed_zone')
 
 merged_grouped %>% mutate(fatal_proportion = total_accidents_speedzone_fatalities/total_accidents_speedzone) %>%
-  subset(fatal_accident == "Y") %>%
+  subset(inj_level_desc == "Fatality" & speed_zone != "777" & speed_zone != "888" & speed_zone != "999") %>%
   ggplot(aes(x = speed_zone, y = fatal_proportion)) +
   geom_bar(stat="identity", position="dodge") +
   ggtitle("Fatality proportion by speed zone")
