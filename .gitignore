@@ -48,3 +48,4 @@ vignettes/*.pdf
 # R package: bookdown caching files
 /*_files/
 data/Car_Accident_Data.csv
+data/car_accident.csv
