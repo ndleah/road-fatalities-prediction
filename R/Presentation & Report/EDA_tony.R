@@ -5,12 +5,11 @@ library(janitor)
 library(magrittr)
 library(here)
 library(scales)
-
 car_accidents <- read_csv(here("data/car_accident.csv"))
-
 car_accidents <- clean_names(car_accidents)
 car_accidents <- rename(car_accidents, accident_date = accidentdate)
 car_accidents <- rename(car_accidents, accident_time = accidenttime)
+
 
 # Understanding data ----
 glimpse(car_accidents)
@@ -70,3 +69,31 @@ merged_grouped %>% mutate(fatal_proportion = total_accidents_speedzone_fatalitie
   ggplot(aes(x = speed_zone, y = fatal_proportion)) +
   geom_bar(stat="identity", position="dodge") +
   ggtitle("Fatality proportion by speed zone")
+
+# Fatal accidents by year ----
+car_accidents$accident_date <- as.Date(car_accidents$accident_date)
+typeof(car_accidents$accident_date)
+
+fatality_summary_year <- car_accidents %>%
+  subset(inj_level_desc == "Fatality") %>%
+  mutate(year = year(accident_date)) %>%
+  group_by(year, inj_level_desc) %>%
+  summarize(total_accident_fatalities=n_distinct(accident_no))
+
+#line graph
+fatality_summary_year %>% 
+  ggplot(aes(x = year, y = total_accident_fatalities)) +
+  geom_line() + 
+  ggtitle("Fatal Accidents by Year") +
+  xlab("Year") + ylab("Total Accidents with Fatalities") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+  scale_x_continuous(breaks = fatality_summary_year$year)
+
+#bar graph
+fatality_summary_year %>% 
+  ggplot(aes(x = year, y = total_accident_fatalities)) +
+  geom_bar(stat="identity", position="dodge") + 
+  ggtitle("Fatal Accidents by Year") +
+  xlab("Year") + ylab("Total Accidents with Fatalities") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+  scale_x_continuous(breaks = fatality_summary_year$year)
