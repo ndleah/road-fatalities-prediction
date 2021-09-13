@@ -242,3 +242,25 @@ fatality_summary_month %>%
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
   scale_x_continuous(breaks = fatality_summary_month$year) +
   ggthemes::theme_tufte()
+
+# Speed zone age group ratio of fatalities ----
+fatality_agegroup_summary <- car_accidents %>%
+  subset(inj_level_desc == "Fatality" & road_user_type_desc == "Drivers" & age_group != "unknown" & age_group != "13-15") %>%
+  group_by(age_group) %>%
+  summarize(total_accident_fatalities=n_distinct(accident_no))
+
+accident_agegroup_summary <- car_accidents %>%
+  subset(road_user_type_desc == "Drivers" & age_group != "unknown" & age_group != "13-15") %>%
+  group_by(age_group) %>%
+  summarize(total_accidents=n_distinct(accident_no))
+
+merged_summary_agegroup <- left_join(x = fatality_agegroup_summary, y = accident_agegroup_summary, by = c("age_group")) %>%
+  mutate(total_fatal_ratio = 100 * total_accident_fatalities / total_accidents)
+
+merged_summary_agegroup %>%
+  ggplot(aes(x = age_group, y = total_fatal_ratio)) +
+  geom_bar(stat = "identity" , fill = "#B22222") +
+  xlab("Age Group") + ylab("Total Fatalities / Total Accidents") +
+  ggthemes::theme_tufte()
+
+ggsave(file="bench_query_sort.png", width=8, height=6, dpi=600)
