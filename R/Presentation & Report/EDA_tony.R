@@ -63,7 +63,7 @@ barplot(counts, main="Accidents By Speed Zone",
         xlab="Speed Zone") 
 
 #
-####### Fatal accident proportions by speed zone ######
+####### SPEED ZONE and fatal accident ratio ######
 #
 grouped2 <- car_accidents %>%
   group_by(speed_zone) %>%
@@ -79,13 +79,14 @@ merged_grouped %>% mutate(fatal_proportion = total_accidents_speedzone_fatalitie
   subset(inj_level_desc == "Fatality" & speed_zone != "777" & speed_zone != "888" & speed_zone != "999") %>%
   ggplot(aes(x = speed_zone, y = fatal_proportion)) +
   geom_bar(stat="identity", position="dodge", fill = "#B22222") +
-  xlab("Speed Zone") + ylab("Total Fatalaty / Total Accidents") +
+  xlab("Speed Zone") + ylab("Total Accidients with Fatalaty / Total Accidents") +
   ggthemes::theme_tufte()
 
 ggsave(file="speed-zone_fataility-ratio.png", width=8, height=4, dpi=600)
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #
-########## BY YEAR - Fatal accidents by year ##########
+########## YEAR - Fatal accidents by year ##########
 #
 car_accidents$accident_date <- as.Date(car_accidents$accident_date)
 typeof(car_accidents$accident_date)
@@ -108,7 +109,72 @@ fatality_summary_year %>%
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5), panel.grid.major=element_line(color="grey", size=0.25)) +
   scale_y_continuous(expand = c(0, 0), limits = c(0, 325), breaks = c(0, 50, 100, 150, 200, 250, 300, 350))
 
-ggsave(file="year_total-fatal-accidents.png", width=8, height=4, dpi=600)
+ggsave(file="year_fatal-accidents.png", width=8, height=4, dpi=600)
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#
+########### MONTH - Fatal accidents #######
+#
+car_accidents$accident_date <- as.Date(car_accidents$accident_date)
+typeof(car_accidents$accident_date)
+
+fatal_accidents_summary_month <- car_accidents %>%
+  subset(inj_level_desc == "Fatality") %>%
+  subset(year(accident_date) < 2020) %>%
+  mutate(month = month(accident_date)) %>%
+  group_by(month) %>%
+  summarize(total_fatal_accidents=n_distinct(accident_no)) %>%
+  mutate(month_name = month.name[month])
+  
+fatal_accidents_summary_month$month_name = factor(fatal_accidents_summary_month$month_name, levels = month.name)
+
+fatal_accidents_summary_month %>%
+  ggplot(aes(x = month_name, y = total_fatal_accidents)) +
+  geom_bar(stat="identity", position="dodge", fill = "#B22222") + 
+  ggtitle("Fatal Accidents by Month (excludes 2020)") +
+  xlab("Month") + ylab("Total Accidents with Fatalities") +
+  ggthemes::theme_tufte()
+
+ggsave(file="month_fatal-accidents.png", width=8, height=6, dpi=600)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#
+############## MONTH - Fatality ratio ################
+#
+car_accidents$accident_date <- as.Date(car_accidents$accident_date)
+typeof(car_accidents$accident_date)
+
+fatal_accidents_summary_month <- car_accidents %>%
+  subset(inj_level_desc == "Fatality") %>%
+  subset(year(accident_date) < 2020) %>%
+  mutate(month = month(accident_date)) %>%
+  group_by(month) %>%
+  summarize(total_fatal_accidents=n_distinct(accident_no)) %>%
+  mutate(month_name = month.name[month])
+
+accidents_summary_month <- car_accidents %>%
+  subset(year(accident_date) < 2020) %>%
+  mutate(month = month(accident_date)) %>%
+  group_by(month) %>%
+  summarize(total_accidents=n_distinct(accident_no)) %>%
+  mutate(month_name = month.name[month])
+
+fatality_ratio_by_month <- left_join(x = fatal_accidents_summary_month, y = accidents_summary_month, by = c('month', 'month_name')) %>%
+  mutate(fatality_ratio = total_fatal_accidents / total_accidents)
+
+fatality_ratio_by_month$month_name = factor(fatality_ratio_by_month$month_name, levels = month.name)
+
+fatality_ratio_by_month %>%
+  ggplot(aes(x = month_name, y = fatality_ratio)) +
+  geom_bar(stat="identity", position="dodge", fill = "#B22222") + 
+  ggtitle("Fatality Ratio by Month (excludes 2020)") +
+  xlab("Month") + ylab("Total Accidents with Fatalities / Total Accidents") +
+  ggthemes::theme_tufte()
+
+ggsave(file="month_fatality-ratio.png", width=8, height=6, dpi=600)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #bar graph
 fatality_summary_year %>% 
@@ -250,7 +316,7 @@ fatality_summary_month %>%
   scale_x_continuous(breaks = fatality_summary_month$year) +
   ggthemes::theme_tufte()
 
-# Age group ratio of fatalities ----
+# AGE GROUP and fatality ratio ----
 fatality_agegroup_summary <- car_accidents %>%
   subset(inj_level_desc == "Fatality" & road_user_type_desc == "Drivers" & age_group != "unknown" & age_group != "13-15") %>%
   group_by(age_group) %>%
@@ -267,7 +333,8 @@ merged_summary_agegroup <- left_join(x = fatality_agegroup_summary, y = accident
 merged_summary_agegroup %>%
   ggplot(aes(x = age_group, y = total_fatal_ratio)) +
   geom_bar(stat = "identity" , fill = "#B22222") +
-  xlab("Age Group") + ylab("Total Fatalities / Total Accidents") +
+  xlab("Age Group") + ylab("Total Accidents with Fatalities / Total Accidents") +
   ggthemes::theme_tufte()
 
 ggsave(file="age-group_fatality-ratio.png", width=8, height=6, dpi=600)
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

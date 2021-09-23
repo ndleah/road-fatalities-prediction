@@ -9,37 +9,6 @@ library(rjson)
 library(here)
 library(lubridate)
 
-#-----------------------------------------
-# Source Car Accident Data from Vicroads
-#-----------------------------------------
-
-# Set where zip file will be saved locally ----
-file_path <- here("data", "ACCIDENT")
-setwd(file_path)
-
-# Download and extract data  ----
-url <- 
-'https://vicroadsopendatastorehouse.vicroads.vic.gov.au/opendata/Road_Safety/ACCIDENT.zip'
-download.file(url, 'CarAccidentsData.zip')
-unzip('CarAccidentsData.zip')
-  
-
-# Place selected files into variables  ----
-f <- file.path(file_path, c("ACCIDENT.csv","ACCIDENT_LOCATION.csv", 
-                            'NODE.csv','PERSON.csv',"ATMOSPHERIC_COND.csv", 
-                            'ROAD_SURFACE_COND.csv','VEHICLE.csv'))
-
-# Create names for the variables ----
-names(f) <- gsub(".*/(.*)\\..*", "\\1", f)
-
-# Read files into variables ready for analysis
-for (i in 1:length(f)){
-    x= read_csv(f[i])
-    names(x)<- gsub(' ','_', names(x))
-    assign(names(f[i]),x)
-    remove(x)
-  }
-
 #------------------------------------------------
 # Source weather and postcode data from API
 #------------------------------------------------
@@ -130,12 +99,16 @@ if(!dir.exists("data/weather_data")){ # don't run to gather weather data
  }
 }
 
+#------------------------------------------------
+# Consolidate and clean weather data
+#------------------------------------------------
 
 # Read consolidated API weather data place into one csv file ----
 # setwd()
-WEATHER_DATA <- list.files(pattern = '*.csv') %>%
+weather_data_path <- here("data", "weather_data")
+setwd(weather_data_path)
+WEATHER_DATA <- list.files(path = weather_data_path, pattern = '*.csv') %>%
                             map_df(~read_csv(.))
-
 
 # Remove Spaces from heading names ----
 names(WEATHER_DATA) <- gsub(' ', '', names(WEATHER_DATA))
@@ -159,6 +132,40 @@ WEATHER_DATA$Datetime <- as.Date(WEATHER_DATA$Datetime, format =  "%m/%d/%Y")
 # Weather API data is ready to be added to Car Accident data ----
 WEATHER_DATA
 
+
+#-----------------------------------------
+# Source Car Accident Data from Vicroads
+#-----------------------------------------
+
+# Set where zip file will be saved locally ----
+if(!dir.exists(here("data/ACCIDENT"))){
+  dir.create(here("data/ACCIDENT"))
+}
+file_path <- here("data", "ACCIDENT")
+setwd(file_path)
+
+# Download and extract data  ----
+url <- 
+  'https://vicroadsopendatastorehouse.vicroads.vic.gov.au/opendata/Road_Safety/ACCIDENT.zip'
+download.file(url, 'CarAccidentsData.zip')
+unzip('CarAccidentsData.zip')
+
+
+# Place selected files into variables  ----
+f <- file.path(file_path, c("ACCIDENT.csv","ACCIDENT_LOCATION.csv", 
+                            'NODE.csv','PERSON.csv',"ATMOSPHERIC_COND.csv", 
+                            'ROAD_SURFACE_COND.csv','VEHICLE.csv'))
+
+# Create names for the variables ----
+names(f) <- gsub(".*/(.*)\\..*", "\\1", f)
+
+# Read files into variables ready for analysis
+for (i in 1:length(f)){
+  x= read_csv(f[i])
+  names(x)<- gsub(' ','_', names(x))
+  assign(names(f[i]),x)
+  remove(x)
+}
 
 #----------------------------------------------
 # Combined All Data To Begin Analysis
@@ -187,9 +194,11 @@ BASE$ACCIDENTDATE <- str_extract(BASE$ACCIDENTDATE, "\\d+/\\d+/\\d+")
 BASE$ACCIDENTDATE <- dmy(BASE$ACCIDENTDATE)
 
 # Combine base data with API Weather data ----
+glimpse(BASE)
+# Note that POSTCODE_NO is the POSTCODE of where the accident is and POSTCODE is probably where the person lives
 data <- left_join(BASE, WEATHER_DATA, by= c('POSTCODE_NO'='Postcode',
                                             'ACCIDENTDATE'='Datetime'))
-
+glimpse(data)
 
 # Clean up unused variables ----
 remove(PERSON, ACCIDENT, ROAD_SURFACE_COND, ACCIDENT_LOCATION,NODE,
