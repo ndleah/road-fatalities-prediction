@@ -14,6 +14,7 @@ car_accidents <- rename(car_accidents, accident_time = accidenttime)
 
 # Understanding data ----
 glimpse(car_accidents)
+summary(car_accidents)
 names(car_accidents)
 
 # Accident proportion of severity by light condition ----
@@ -138,6 +139,9 @@ fatal_accidents_summary_month %>%
 ggsave(file="month_fatal-accidents.png", width=8, height=6, dpi=600)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+car_accidents %>%
+  group_by(fatal_accident)
 
 #
 ############## MONTH - Fatality ratio ################
@@ -338,3 +342,27 @@ merged_summary_agegroup %>%
 
 ggsave(file="age-group_fatality-ratio.png", width=8, height=6, dpi=600)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+# SURFACE CONDITION and fatality ratio
+
+df <- car_accidents %>%
+  filter(seating_position == 'D') %>%
+  group_by(surface_cond_desc) %>%
+  summarise(total_fatalities = n_distinct(accident_no),
+            number_of_sameples = n(),
+            fatalities_ratio = total_fatalities / number_of_sameples)
+
+df %>%
+  filter(surface_cond_desc != 'Unknown') %>%
+  ggplot(aes(x = surface_cond_desc, y = fatalities_ratio)) +
+  geom_bar(stat = 'identity', fill = "#B22222") +
+  xlab("Surface Condition Description") + ylab("Total Accidents with Fatalities / Total Accidents") +
+  ggthemes::theme_tufte()
+  
+ggsave(file="surface-condition_fatality-ratio.png", width=8, height=6, dpi=600)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Summary Tools =====
+library(summarytools)
