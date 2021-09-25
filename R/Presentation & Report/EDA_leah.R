@@ -554,7 +554,6 @@ light_conditions + weather
 
 
 
-
 # create new column to specify weekend and weekday 
 fatality_accidents$ACCIDENTDATE <- as.Date(fatality_accidents$ACCIDENTDATE)
 
