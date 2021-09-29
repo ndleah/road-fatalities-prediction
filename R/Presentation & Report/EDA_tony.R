@@ -16,6 +16,10 @@ car_accidents <- rename(car_accidents, accident_time = accidenttime)
 glimpse(car_accidents)
 summary(car_accidents)
 names(car_accidents)
+table(car_accidents$day_week_description)
+ftable(car_accidents$day_week_description)
+sum(is.na(car_accidents$fatal_accident))
+sum(is.na(car_accidents$postcode))
 
 # Accident proportion of severity by light condition ----
 
@@ -364,5 +368,11 @@ ggsave(file="surface-condition_fatality-ratio.png", width=8, height=6, dpi=600)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# Summary Tools =====
-library(summarytools)
+# epiDisplay ===== https://www.programmingr.com/statistics/frequency-table/
+library(epiDisplay)
+tab1(car_accidents$day_week_description, sort.group = "decreasing", cum.percent = TRUE)
+tab1(car_accidents$age_group, sort.group = "decreasing", cum.percent = TRUE)
+tab1(car_accidents$sex, sort.group = "decreasing", cum.percent = TRUE)
+tab1(car_accidents$inj_level, sort.group = "decreasing", cum.percent = TRUE)
+tab1(car_accidents$seating_position, sort.group = "decreasing", cum.percent = TRUE)
+tab1(car_accidents$road_user_type_desc, sort.group = "decreasing", cum.percent = TRUE)
