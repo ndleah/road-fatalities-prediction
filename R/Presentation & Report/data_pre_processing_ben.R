@@ -206,7 +206,7 @@ final_cols <- c("ACCIDENT_NO","FATAL_ACCIDENT",
                 
 
 final_df <- final_df[final_cols]
-#write_csv(final_df, here("data", "Car_Accident_Data_No_Na.csv"))
+write_csv(final_df, here("data", "Car_Accident_Data_No_Na.csv"))
 
 ################################################################################
 #final_df[numerical_cols] <- sapply(final_df[numerical_cols], as.numeric)

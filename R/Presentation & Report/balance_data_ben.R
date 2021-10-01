@@ -6,6 +6,7 @@ library(mltools)
 library(VIM)
 library(summarytools)
 library(DMwR)
+library(performanceEstimation) #alternative to DMwR uses smote() instead
 
 ################################################################################
 # Read in data
@@ -78,6 +79,10 @@ smote_cross <- smote_cross[ , !(names(smote_cross) %in% drops)]
 smote_train$FATAL_ACCIDENT <- as.factor(smote_train$FATAL_ACCIDENT)
 smote_test$FATAL_ACCIDENT <- as.factor(smote_test$FATAL_ACCIDENT)
 smote_cross$FATAL_ACCIDENT <- as.factor(smote_cross$FATAL_ACCIDENT)
+
+smote_train <- as.data.frame(unclass(smote_train), stringsAsFactors = TRUE)
+smote_test <- as.data.frame(unclass(smote_train), stringsAsFactors = TRUE)
+smote_cross <- as.data.frame(unclass(smote_train), stringsAsFactors = TRUE)
 
 smote_train <- SMOTE(FATAL_ACCIDENT ~ ., smote_train, perc.over = 200)
 smote_test <- SMOTE(FATAL_ACCIDENT ~ ., smote_test, perc.over = 200)
