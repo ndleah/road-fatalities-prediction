@@ -6,19 +6,25 @@ library(here)
 ################################################################################
 # Read in data
 ################################################################################
+no_change_train <-read_csv(here("data", "no_change_train.csv"))
+test_generic <- read_csv(here("data", "test_set_generic.csv"))
 smote_train <- read_csv(here("data", "smote_train.csv"))
-smote_test <- read_csv(here("data", "smote_test.csv"))
 under_sample_train <- read_csv(here("data", "under_sample_train.csv"))
-under_sample_test <- read_csv(here("data", "under_sample_test.csv"))
+
 ################################################################################
 # Model function starts here
 ################################################################################
 create_model <- function(train_df, test_df, lift_threshold) {
 # Fit/Train logistic regression model\
    print("Fitting model")
-   model <- glm(FATAL_ACCIDENT ~., family = binomial, data = train_df)
+   #model <- glm(FATAL_ACCIDENT ~., family = binomial, data = train_df)
    print("Performing forward Selection")
-   model <- stepAIC(model, direction="forward")
+   # Create base with target only
+   fit_start <- glm(FATAL_ACCIDENT ~ 1, family = binomial, data = train_df)
+   # Create fit all
+   fit_all <- glm(FATAL_ACCIDENT ~., family = binomial, data = train_df)
+   # Perform step forward
+   model <- stepAIC(fit_start, direction="forward", scope = formula(fit_all))
    print("Forward Selection complete")
    print(summary(model))
 # Test Model / Create Predictions
@@ -37,67 +43,58 @@ create_model <- function(train_df, test_df, lift_threshold) {
    false_neg <- (true_y==1) & (pred_y==0)
    conf_mat <- matrix(c(sum(true_pos), sum(false_pos),
                         sum(false_neg), sum(true_neg)), 2, 2)
-   colnames(conf_mat) <- c('Yhat = 1', 'Yhat = 0')
-   rownames(conf_mat) <- c('Y = 1', 'Y = 0')
+   # colnames(conf_mat) <- c('Yhat = 1', 'Yhat = 0')
+   # rownames(conf_mat) <- c('Y = 1', 'Y = 0')
    print(conf_mat)
+   # calculate accuracy
+   accuracy <- ((conf_mat[1,1] + conf_mat[2, 2]) / (sum(conf_mat[1,]) + sum(conf_mat[2,])))
+   # calculate precision
+   precision <- conf_mat[1, 1] / sum(conf_mat[,1])
+   # calculate recall
+   recall <- conf_mat[1, 1] / sum(conf_mat[1,])
+   # calculate specificity
+   specificity <- conf_mat[2, 2] / sum(conf_mat[2,])
+   f1_score <- ((2*precision*recall)/(precision + recall))
+   print(" ")
+
+   print(paste0("Accuracy:", accuracy))
+   print(paste0("Precision: ", precision))
+   print(paste0("recall: ", recall))
+   print(paste0("specificity: ", specificity))
+   print(paste0("F1 Score: ", f1_score))
+   
+   # Create ROC curve
+   idx <- order(-pred)
+   recall <- cumsum(true_y[idx] == 1) / sum(true_y == 1)
+   specificity <- (sum(true_y == 0) - cumsum(true_y[idx] == 0)) / sum(true_y == 0)
+   roc_df <- data.frame(recall = recall, specificity = specificity)
+   roc <- ggplot(roc_df, aes(x=specificity, y=recall)) +
+      geom_line(color='blue') +
+      scale_x_reverse(expand=c(0, 0)) +
+      scale_y_continuous(expand=c(0, 0)) +
+      geom_line(data=data.frame(x=(0:100) / 100), aes(x=x, y=1-x),
+                linetype='dotted', color='red')
+   
+   print(roc)
+   
+   auc <- sum(roc_df$recall[-1] * diff(1 - roc_df$specificity))
+   print(paste0("AUC: ", auc))
+
    print("###### Model finished here ######")
-}
+ }
 
 ################################################################################
 # Parse various data to model function here
 ################################################################################
-create_model(smote_train, smote_test, 0.5)
-create_model(under_sample_train, under_sample_test, 0.50)
+# https://www.sciencedirect.com/science/article/pii/S1556086415306043
+#https://medium.com/black-feathers-labs/why-precision-recall-why-not-accuracy-83349aa4c829
+
+# create_model(no_change_train, test_generic, 0.5)
+#create_model(smote_train, test_generic, 0.5)
+#create_model(under_sample_train, test_generic, 0.46)
 
 
 
 
 
 
-#pred <- exp(pred)/(1+exp(pred))
-# pred <- as.factor(pred)
-# test <- as.factor(smote_test$FATAL_ACCIDENT)
-# confusionMatrix(pred, as.factor(smote_test$FATAL_ACCIDENT))
-# residuals <- residuals(model)
-
-
-
-# Convert Dummys to factors
-# dummy_cols <- c("FATAL_ACCIDENT",
-#                 "SEXF",
-#                 "SEXM",
-#                 "Accident_Type_DescCollision.with.a.fixed.object",
-#                 "Accident_Type_DescStruck.animal",
-#                 "Accident_Type_DescStruck.Pedestrian",
-#                 "Accident_Type_DescVehicle.overturned..no.collision.",
-#                 "Road_Surface_Type_DescUnpaved",
-#                 "Surface_Cond_DescDry",
-#                 "Surface_Cond_DescIcy",
-#                 "Surface_Cond_DescMuddy",
-#                 "Surface_Cond_DescSnowy",
-#                 "Surface_Cond_DescWet",
-#                 "Atmosph_Cond_DescClear",
-#                 "Atmosph_Cond_DescFog",
-#                 "Atmosph_Cond_DescRaining",
-#                 "Atmosph_Cond_DescSmoke",
-#                 "Atmosph_Cond_DescStrong.winds",
-#                 "Light_Condition_DescDark.No.street.lights",
-#                 "Light_Condition_DescDark.Street.lights.off",
-#                 "ConditionsOvercast",
-#                 "ConditionsRain",
-#                 "ConditionsRain..Overcast",
-#                 "Age_Group16.17",
-#                 "Age_Group17.21",
-#                 "Age_Group70.",
-#                 "Day_Week_DescriptionSaturday",
-#                 "Day_Week_DescriptionSunday",
-#                 "NO_OF_CYLINDERS_4",
-#                 "NO_OF_CYLINDERS_6",
-#                 "NO_OF_CYLINDERS_8",
-#                 "NO_OF_CYLINDERS_12")
-# 
-# dummy_cols <- c('FATAL_ACCIDENT', 'NO_OF_CYLINDERS_8')
-# smote_train[dummy_cols] <- lapply(smote_train[dummy_cols], factor)
-# smote_test[dummy_cols] <- lapply(smote_test[dummy_cols], factor)
-# smote_train <- smote_train[dummy_cols]
-# smote_test <- smote_test[dummy_cols]
