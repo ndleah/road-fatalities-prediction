@@ -219,7 +219,6 @@ accidents %>%
 ```
 
 #Number of Fatal accidents by Weather Conditions
-```{r}
 accidents %>%
  filter(Inj_Level_Desc %in% "Fatality") %>%
  ggplot() +
@@ -236,7 +235,6 @@ accidents %>%
     face = "bold",
     hjust = 0.5)
   )
-```
 
 #Number of Fatal Accidents by Light Conditions
 ```{r}
