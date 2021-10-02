@@ -6,12 +6,113 @@ output: pdf_document
 # Method
 
 ## Regression Model
+In our study, we chose multivariate Logistic Regression Model to tackle the research questions. According to Menard (2002), logistic regression models are used to model the probability of a certain event based on independent predictor variables.
+
+While more sophisticated machine learning (ML) techniques have arisen and been applied to accident investigations over the last decade, logistic regression offers several advantages over ML techniques that support its use in our group study.
+
+To begin, regression model findings are easy to interpret. Only the independent variables and their coefficients are required to represent the model in a single formula. The model's coefficients can be used to determine critical variables, as well as the amount and direction of association between each independent variable (i.e., risk factor) and the dependent variable (fatalities rate).
+
+Second, once risk factors are discovered, creating a logistic regression model is straightforward and does not require tweaking multiple hyperparameters, as machine learning methods do. Due to this property, logistic regression is frequently used as the first classifier in predictive research and serves as a valid baseline for more advanced classifiers.
+
+Third, while association rules might be effective for identifying latent patterns in huge data sets, they are fundamentally distinct from classification methods such as logistic regression modeling.
 
 ## Data Preparation
 
 ### Data Filtering
 
+Traditionally, building statistical models starts with selecting variables that can result in a parsimonious model (i.e., having as few variables as possible). In order to do that, the first step is to edit it so that each point is genuinely useful, as larger is not necessarily better (Christensen, 2020). One simple solution is to clearly understand what problems we expect to resolve from our dataset.
+
+Since the aim of this project was to predict the factors that are likely to contribute to deaths from road accidents, we filtered the data points containing the variables 'Drivers' and 'Motorcyclists' of the Road User Types to avoid any bias during analysis. After filtering out, the number of rows is reduced to 311,199 records.
+
 ### Data Pre-processing
+
+Next, an essential component of statistical modelling is analyzing the data set to ensure the data is tidy and in a compliant format for desired modelling technique. Our merged dataset is unstructured and contains significant superfluous data (defined as not contributing significantly to the prediction process). Since large datasets require longer training times, data preprocessing is, therefore, required to overcome this limitation. Preprocessing involves various tasks including dealing with following problems:
+
+* Handling Outliers
+
+* Handling Missing Values
+
+* Handling Skewness
+
+* Encoding
+
+* Data Imbalance
+
+Therefore, within the dataset, the following data issues were identified and handled accordingly.
+
+#### Dealing with Missing Values
+
+Handling missing values within the data can be tedious. While some methods can be convenient, they can also be at the expense of the data's integrity. For instance, while handling numerical variables was straightforward, dealing with missing categorical data had challenges. 
+
+In our dataset, there are total of 135,303 missing values, which equivalent to 0.83% of our dataset. As illustrated in Figure 5, the majority of the important variables have little or no missing values while most of the missing values are associated with various vehicle information. In order to deal with missing data, our group has come up with 6 common techniques, including:
+
+*	Drop / Remove all missing values
+
+*	Imputation Using Mode Values
+
+*	Imputation Using (Mean/Median) Values
+
+*	Amelia predictive model (Multiple Imputation)
+
+*	K-nearest neighbor
+
+*	Random Imputation
+
+in which each of them is fully explained in Figure 6.
+
+However, these methods have their pros and cons. Based on our research problem and technical requirement, we have chosen to reject some of the approaches as illustrated in Table 1.
+
+| Techniques                                    | Problems                                                                                                                                                                                                             |
+|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Drop / Remove all missing values              | "Upon first inspection, multiple variables contained large amounts of missing fields within numerical and categorical data fields. Dropping would result in thousands of lost rows; hence this method was rejected." |
+| Imputation Using Mode Values                  | "Due to the skewness of several categorical variables, replacing missing values with the mode made this skew even larger; hence this method was rejected."                                                           |
+| Imputation Using (Mean/Median) Values         | Significantly reduce the model’s accuracy and bias the results since it can has an impact on attributes variability.                                                                                                 |
+| Amelia predictive model (Multiple Imputation) | "A multiple imputation method that replaces missing values with a bootstrap approach. This approach required 50 gigabytes of system memory to perform, which was resource-intensive for a home computer."            |
+| K-nearest neighbor                            | "This imputation method was trialed and, similarly to Amelia, is computationally expensive since KNN only works by storing the whole training dataset in memory."                                                    |
+
+-> **Table 1**. Missing data dealing techniques rejection <-
+
+As final, we chose **Random Imputation** as the technique for dealing with missing values before constructing regression model (Figure []). This method eliminates the imputation variance of the estimator of a mean or total, and at the same time preserves the distribution of item values (Chen, et al., 2000). 
+
+#### Dealing with skewed data
+
+As illustrated in Figure [], there were degrees of skew on some of our numerical data, specifically in precipitation, cloud cover and relative humidity columns. Skewed data is troublesome as logistic regression assumes a normal distribution (Bill, 2014).
+
+We need to handle this skewness, as our modelling algorithms assumes a normal distribution (Bill, 2014). As our skewed data follows closely to beta distributions, it was appropriate to use log transformation (Hammouri, Sabo and Alsaadawi, 2020).
+
+#### Standardizing numerical data
+
+Machine learning algorithms like linear regression, logistic regression, neural network, etc. that use gradient descent as an optimization technique require data to be scaled (Bhandari, 2021). This is important to give each data point greater meaning by transforming the data to comparable scales. 
+
+Since our numerical data is spread over on a relatively large scale and needs to be dealt for more effective modelling, standardization need to be employed. In our case, Normal Standardization is the approach that is considered most effective as our numerical data is transformed or already follows the Gaussian Distribution (Lakshmanan, 2019).  
+
+As we are rescaling our data for standardization, we use the scale method in R with the default settings, so that the data has a mean of 0 and standard deviation of 1 (Geller, 2019; see also Saporta, 2013; Scale Function - RDocumentation, n.d.).
+
+#### Handling Outliers
+Outliers in data can have significant impacts on analysis of the data. If outliers are present in the data during analysis, they may increase the error variance, reduce the strength of statistical tests, and can bias the results used in estimates of model parameters. Consequently, it is vital to scan and address outliers in the pre-processing phase (Dolgun, 2020).
+
+The decision to remove outliers was based on the belief that they were present due to reporting errors or the presumption that they would impact results (3). Within our meaningful variables, we found `AGE` column to have several outliers (Figure []). 
+
+Taking a closer group in terms of different age groups, according to Figure [], all outliers are found in age group 70+ using the univariate box plot approach to detect outliers in AGE for a given `AGE GROUP`. Another strategy is using z-score approach to find out outliers of AGE variable. 
+
+First, our group calculated z-scores. Then I will find all observations that have the absolute value of AGE’s z-score is greater than 3 (Figure []). From our observation, the minimum z score is -2.4227 and the maximum is 3.9373; there are only 373 out of 311,199 observations, which is only 0.1% of observations, are outliers. In this case, our group decided not to do anything to change the outliers because the age of people should not be changed. 
+
+#### Categorical Data Encoding
+
+In this study, the features collected are the combinations of categorical and numerical data. Categorical variables possess a vast detail of information that links to the target variables; However, as we will use machine learning approach is logistic regression, it cannot operate on categorical values directly and require the input variables and the output variables to be numeric. Therefore, in order to represent categorical information, 2 common techniques as One-Hot Encoding and Label Encoding are proposed (Figure []).
+
+Since our categories values contain different variables with little relationships to each other, we adopted this technique to deal with categorical variables, specifically, variables that were deemed to be primarily present in fatal accidents (Figure []).
+
+#### Data imbalance
+
+In our dataset, the class imbalance problem presents an important challenge. In particular, it was observed that value counts of non-fatalities and fatalities were 540,266 and 10,312, respectively. In this case, the imbalance data happens to be the “Rare Class Problem”, in which the number of examples of one class is more than the others (Maheshwari et al., 2018). 
+
+Working with such imbalanced datasets presents the difficulty that most machine learning algorithms ignore, and so perform poorly on, the minority class, despite the fact that performance on the minority class is often the most significant. Therefore, the chosen methods to solve this problem were:
+
+*	**Under sampling:** The class of focus total occurrences were found, and then a random sample of the overpopulated class was taken to create a subsetted data set. This essentially achieves the same as randomly eliminating cases from the majority class (Pykes, 2020).
+
+*	**SMOTE:** Oversampling is another way to solve this problem, which has an advantage of no data loss compared to undersampling, however it risks overfitting due to replicated observations (Vidhya, 2020). The article follows up with a better approach called the synthetic minority oversampling technique (SMOTE), which apparently generates artificial data by using bootstrapping and k-nearest neighbors. We can see the introduction and a more in-depth explanation of this technique from Chawla et al. (2002) where page 329 has pseudocode of the logic. Luckily, the article from Vidhya (2020) introduces the DmwR package, which has the SMOTE function to help with applying the SMOTE technique quickly. 
+
 
 ### Features Selection
 

@@ -19,9 +19,13 @@ header-includes:
 
 ---
 
-```{r setup, include=TRUE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(include = FALSE)
 options(tinytex.verbose = TRUE)
+```
+
+```{r, include=FALSE}
+library(here)
 ```
 
 ```{=tex}
@@ -31,15 +35,11 @@ options(tinytex.verbose = TRUE)
 ```
 \pagenumbering{gobble}
 
-```{=tex}
+
+
 \begin{centering}
 
 \vspace{3cm}
-
-
-```{r uni_logo, echo=F, out.width="20%"}
-knitr::include_graphics("UTSlogo.png")
-```
 
 \Large
 
@@ -47,6 +47,10 @@ knitr::include_graphics("UTSlogo.png")
 {\bf ASSESSMENT 2: DATA ANALYSIS \\Part B: Report}
 
 \vspace{1cm}
+
+```{r uni_logo, echo=F, out.width="20%"}
+knitr::include_graphics("UTSlogo.png")
+```
 
 \Large
 
@@ -80,19 +84,16 @@ Manasa Burli Nagendra\\
 October, 2021
 
 \end{centering}
-```
+
 \pagenumbering{roman}
 
 \newpage
 
 <!---Table of Content (TOC)-->
-```{=tex}
 \centering
 \raggedright
 \newpage
 \tableofcontents
-```
-
 \newpage
 
 <!---Sections-->
@@ -136,6 +137,9 @@ October, 2021
 
 <!---Appendix-->
 \blandscape
-```{r appendix, child = 'appendix.Rmd'}
+```{r appendix, child = 'appendix_1.Rmd'}
 ```
 \elandscape
+
+```{r appendix, child = 'appendix_2.Rmd'}
+```
