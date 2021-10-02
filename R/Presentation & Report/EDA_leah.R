@@ -34,14 +34,18 @@ colnms <- colnames(df)
 dfNA <- df[ , colSums(is.na(df))!=0]
 
 # Check for NA values
-missing_data <- summary(aggr(dfNA,prop=TRUE,combined=TRUE, cex.axis=0.4, sortVars=TRUE))
+missing_data <- summary(aggr(dfNA,prop=TRUE,combined=TRUE, 
+                             cex.axis=0.4, sortVars=TRUE))
 
 #--------------------------------------------------------------------------------------------
 # Deal with missing data
 #--------------------------------------------------------------------------------------------
 # categorical variables
-df[c(6,16:18,20:22,35:36)] <- df[c(6,16:18,20:22,35:36)]%>% replace(is.na(.), "Unknown")
-df[c(15,19)] <- df[c(15,19)] %>% replace(is.na(.), 0)
+df[c(6,16:18,20:22,35:36)] <- df[c(6,16:18,20:22,35:36)]%>% 
+  replace(is.na(.), "Unknown")
+
+df[c(15,19)] <- df[c(15,19)] %>% 
+  replace(is.na(.), 0)
 
 # numeric variables
 df[c(25,28:34)] <- 
@@ -552,16 +556,3 @@ weather <- fatality_accidents %>%
 #plot 2 plots into 1 graphic
 light_conditions + weather
 
-
-
-# create new column to specify weekend and weekday 
-fatality_accidents$ACCIDENTDATE <- as.Date(fatality_accidents$ACCIDENTDATE)
-
-weekdays1 <- c('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday')
-
-fatality_accidents$wDay <- factor(
-  (weekdays(fatality_accidents$ACCIDENTDATE) %in% weekdays1), 
-  levels=c(FALSE, TRUE), labels=c('weekend', 'weekday'))
-
-fatality_accidents <- fastDummies::dummy_cols( #create dummy variables columns
-  fatality_accidents, select_columns = "wDay")
