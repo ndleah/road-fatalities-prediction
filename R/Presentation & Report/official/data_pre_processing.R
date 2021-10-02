@@ -6,6 +6,8 @@ library(mltools)
 library(VIM)
 library(summarytools)
 library(moments)
+library(outliers)
+library(DataExplorer)
 
 df <- read_csv(here('data', 'car_accident.csv'))
 
@@ -61,6 +63,8 @@ all_features_cols <- c(cat_cols)
 ################################################################################
 # Handle missing values-----
 ################################################################################
+plot_missing(df)
+
 ################################################################################
 # Replace missing values at same frequency they appear in column
 ################################################################################
@@ -116,7 +120,6 @@ for(name in names(replace_nan_df)){
 ################################################################################
 # NEED TO PERFORM LOG FUNCTION ON SKEWED NUMERICAL DATA HERE
 ################################################################################
-
 log_df <- df[log_cols]
 glimpse(df)
 for(name in names(log_df)){
@@ -153,6 +156,22 @@ category_df <- category_df %>%
 
 base_df <- df[indexing_cols]
 numerical_df <- df[numerical_cols]
+
+################################################################################
+# Outlier
+################################################################################
+# box plot
+boxplot(df$AGE, main="AGE") # Speed Zone
+#multivariate box plot
+boxplot(df$AGE~df$Age_Group)
+# calculate z-score
+mean(df$AGE)
+#calculate z score
+z.scores <- df$AGE %>% na.omit %>% scores(type = "z")
+z.scores %>% summary()
+
+# Finds the total number of outliers according to the z-score
+length (which( abs(z.scores) >3 ))
 
 ################################################################################
 # Standardize/ scale numeric values
