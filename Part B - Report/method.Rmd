@@ -1,0 +1,20 @@
+---
+title: ''
+output: pdf_document
+---
+
+# Method
+
+## Regression Model
+
+## Data Preparation
+
+### Data Filtering
+
+### Data Pre-processing
+
+### Features Selection
+
+### Modelling
+
+# Evaluation

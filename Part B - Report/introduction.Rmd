@@ -1,0 +1,29 @@
+---
+title: " "
+output: pdf_document
+header-includes:
+  - \usepackage{float}
+  - \usepackage{sectsty}
+---
+
+# Introduction
+
+## Global Road Fatalities
+
+Road traffic accidents are the leading cause of injuries and deaths worldwide. According to the WHO, road traffic accidents kill roughly 1.3 million people and injure up to 50 million people each year (World Health Organization, 2021).
+
+If current trends continue, road traffic accidents are expected to be the third leading cause of disease and injury worldwide by 2020. (Murray el al., 1996). The burden of traffic-related fatalities, disabilities, and injuries has a significant impact on the health and social and economic development of many countries, particularly low and middle-income countries (Nantulya et al., 2002).
+
+## Victoria Road Fatalities
+
+For many decades, Victoria has been a leader in road safety in Australia. Victoria's fatality rate per 100,000 population in December 2019 was 4.06, compared to the national average of 4.68. (Australian Automobile Association, 2020). However, this does not change the fact that progress in decreasing the road toll in Victoria has halted, and motor vehicle crashes remain a major cause of death and injury, with significant health and cost consequences.
+
+Having said that, the entire annual cost of road casualties in Victoria is projected to be well over $1 billion (including property damage), and the total lifetime medical and associated costs for motor vehicle traffic-related injury in 1993-94 were $570 million (VicRoads and TAC, 1997; Watson and Ozanne- Smith; 1997). Furthermore, Minister for Road Safety – Luke Donnellan (Towards Zero, 2020) indicated that over the next ten years, roughly 2,500 people in Victoria will die in automobile accidents, and 50,000 people will be hospitalized with serious and life-changing injuries.
+
+Despite the fact that the Victoria management authority has been addressing the situation by enacting a number of rules and safety measures, serious road accidents are nearly always the result of driver carelessness and irresponsibility. This requires an analysis of the relative influence of factors on the number of deaths in Victoria in order to develop effective methods to minimize the rate of road fatalities.
+
+Therefore, this study aims to:  
+
+*	Analyze crash fatalities data in Australia according to several factors, including age, causes of crash deaths, and type of road users, locations, etc. to finding factors related to fatalities conditioned on there being an accident in the first place.
+
+*	Develop a prediction model for crash fatalities in Australia based on crash fatalities data for the period 2006-2020 by using the logistics modelling method. 
