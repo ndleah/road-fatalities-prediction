@@ -1,0 +1,141 @@
+---
+title: ""
+output:
+  pdf_document:
+    number_sections: TRUE
+geometry: "left = 2.5cm, right = 2cm, top = 2cm, bottom = 2cm"
+fontsize: 11pt
+header-includes:
+  - \usepackage{float}
+  - \usepackage{sectsty}
+  - \usepackage{paralist}
+  - \usepackage{setspace}\spacing{1.5}
+  - \usepackage{fancyhdr}
+  - \usepackage{lastpage}
+  - \usepackage{dcolumn}
+  - \usepackage{pdflscape}
+  - \newcommand{\blandscape}{\begin{landscape}}
+  - \newcommand{\elandscape}{\end{landscape}}
+
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+options(tinytex.verbose = TRUE)
+```
+
+```{=tex}
+\allsectionsfont{\centering}
+\subsectionfont{\raggedright}
+\subsubsectionfont{\raggedright}
+```
+\pagenumbering{gobble}
+
+```{=tex}
+\begin{centering}
+
+\vspace{3cm}
+
+
+```{r uni_logo, echo=F, out.width="20%"}
+knitr::include_graphics("UTSlogo.png")
+```
+
+\Large
+
+\doublespacing
+{\bf ASSESSMENT 2: DATA ANALYSIS \\Part B: Report}
+
+\vspace{1cm}
+
+\Large
+
+\doublespacing
+{\bf 36103 Statistical Thinking for Data Science\\University Of Technology Sydney}
+
+\vspace{1 cm}
+
+\normalsize
+\singlespacing
+
+\Large{\textbf{Group Name}}\\
+\doublespacing
+Retail Group\\
+
+\vspace{1 cm}
+
+\Large{\textbf{Group Members}}\\
+\doublespacing
+Leah Nguyen\\
+Tony Tan\\
+Anmol Mittal\\
+Ben McKinnon\\
+Kasun Caldera\\
+Manasa Burli Nagendra\\
+
+\vspace*{1\baselineskip}
+
+\Large{\textbf{Date}}\\
+\doublespacing
+October, 2021
+
+\end{centering}
+```
+\pagenumbering{roman}
+
+\newpage
+
+<!---Table of Content (TOC)-->
+```{=tex}
+\centering
+\raggedright
+\newpage
+\tableofcontents
+```
+
+\newpage
+
+<!---Sections-->
+<!---Executive Summary-->
+```{r intro, child = 'executive.Rmd'}
+```
+\pagenumbering{arabic}
+
+
+\newpage
+<!---Introduction-->
+```{r intro, child = 'introduction.Rmd'}
+```
+
+
+<!---Data-->
+```{r data, child='data.Rmd'}
+```
+
+
+<!---EDA-->
+```{r data, child='eda.Rmd'}
+```
+
+
+<!---Method-->
+```{r method, child = 'method.Rmd'}
+```
+
+
+<!---Limitations-->
+```{r limitations, child = 'limitations.Rmd'}
+```
+
+\newpage
+<!---References-->
+```{r biblio, child = 'bibliography.Rmd'}
+```
+
+\newpage
+
+<!---Appendix-->
+\blandscape
+```{r appendix, child = 'appendix.Rmd'}
+```
+\elandscape
