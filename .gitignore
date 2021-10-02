@@ -49,3 +49,4 @@ vignettes/*.pdf
 /*_files/
 data/Car_Accident_Data.csv
 data/car_accident.csv
+*.csv
