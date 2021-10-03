@@ -6,10 +6,11 @@ library(mltools)
 library(VIM)
 library(summarytools)
 library(moments)
-library(outliers)
 library(DataExplorer)
 
-df <- read_csv(here('data', 'car_accident.csv'))
+
+
+df <- read_csv(here('data', 'Car_Accident_Data.csv'))
 
 ################################################################################
 # Filter and mutate data for basic analysis ----
@@ -35,7 +36,7 @@ target <- c('Drivers', 'Motorcyclists')
 df <- df %>%
   filter(Road_User_Type_Desc %in% target)
 
-dfSummary(df)
+
 ################################################################################
 # Define numerical and categorical columns ----
 ################################################################################
@@ -59,20 +60,20 @@ log_cols <- c('Precipitation', 'CloudCover', 'RelativeHumidity', 'NO_PERSONS',
               'TOTAL_NO_OCCUPANTS', 'NO_OF_VEHICLES', 'SPEED_ZONE',
               'LIGHT_CONDITION')
 
-all_features_cols <- c(cat_cols)
+all_features_cols <- c(numerical_cols, cat_cols)
 ################################################################################
 # Handle missing values-----
 ################################################################################
-plot_missing(df)
-
 ################################################################################
 # Replace missing values at same frequency they appear in column
 ################################################################################
-# which(myV>7)[1]
+dfSummary(df)
+
+#which(myV>7)[1]
 idx_greater_than <- function(value, list){
-#Find the first index of vector 'list' that has a corresponding value greater 
+#Find the first index of vector 'list' that has a corresponding value greater
 #than 'value'
-  
+
   for(i in 1:length(list)){
     if(list[i] > value){
       return(i)
@@ -85,28 +86,29 @@ replace_nan_df <- df[all_features_cols]
 
 for(name in names(replace_nan_df)){
   column_vector <- pull(replace_nan_df, name)
-  
+
   # Get index of nans
   nan_idxs <- which(is.na(column_vector))
-  
+
   # If no nans, don't worry
   if(length(nan_idxs)==0){
     next
   }
-  
+
   srs_notnull <- column_vector[!is.na(column_vector)]
-  
+
   # Get unique labels and counts for the non-nan features
   unique_frequency_df <- as.data.frame(table(srs_notnull))
   labels <- as.character(unique_frequency_df$srs_notnull)
   counts <- unique_frequency_df$Freq
   cum_counts <- cumsum(counts)
-  
+
   # Generate random numbers of size len(nan_idxs)
   set.seed(1)
   rand_vals <- floor(runif(length(nan_idxs), min=0, max=length(srs_notnull)))
-  
+
   new_vals <- c()
+  print(new_vals)
   for(x in rand_vals){
     #Find out the largest number in cum_counts that each rand_val is less than
     larger_value_index <- idx_greater_than(x, cum_counts)
@@ -117,10 +119,13 @@ for(name in names(replace_nan_df)){
   df[nan_idxs, name] = new_vals
 }
 
+dfSummary(df)
 ################################################################################
 # NEED TO PERFORM LOG FUNCTION ON SKEWED NUMERICAL DATA HERE
 ################################################################################
+
 log_df <- df[log_cols]
+plot_histogram(log_df)
 glimpse(df)
 for(name in names(log_df)){
   column_vector <- pull(log_df, name)
@@ -156,22 +161,6 @@ category_df <- category_df %>%
 
 base_df <- df[indexing_cols]
 numerical_df <- df[numerical_cols]
-
-################################################################################
-# Outlier
-################################################################################
-# box plot
-boxplot(df$AGE, main="AGE") # Speed Zone
-#multivariate box plot
-boxplot(df$AGE~df$Age_Group)
-# calculate z-score
-mean(df$AGE)
-#calculate z score
-z.scores <- df$AGE %>% na.omit %>% scores(type = "z")
-z.scores %>% summary()
-
-# Finds the total number of outliers according to the z-score
-length (which( abs(z.scores) >3 ))
 
 ################################################################################
 # Standardize/ scale numeric values
@@ -231,5 +220,9 @@ final_cols <- c("ACCIDENT_NO","FATAL_ACCIDENT",
                 
 
 final_df <- final_df[final_cols]
-write_csv(final_df, here("data", "Car_Accident_Data_No_Na.csv"))
+
+log_df <- df[log_cols]
+plot_histogram(log_df)
+
+#write_csv(final_df, here("data", "Car_Accident_Data_No_Na.csv"))
 

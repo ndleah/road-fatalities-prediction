@@ -7,7 +7,7 @@ output: pdf_document
 library(here)
 ```
 
-## **Figure 3.** Weather API Data Attributes Description
+### **Appendix A-3.** Weather API Data Attributes Description
 
 | Domain              | Description                                                                                                                                                                                                                                                                                                                                                                                                               |
 |-----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -39,134 +39,55 @@ library(here)
 
 \newpage
 
-## **Figure 4.** Dealing with missing values techniques
+### **Appendix A-4.** Dealing with missing values techniques
 
-**Accident attributes:** 
-
-*	**X:** The ID for the record 
-
-*	**ACCIDENT_NO:** The accident id that the person was associated with 
-
-*	**FATAL_ACCIDENT:** Categorical variable on whether the person was involved in an accident with fatalities. This will be our target variable.
-
-*	**ACCIDENTDATE:** The date of the accident 
-
-*	**ACCIDENTTIME:** The time of the accident 
-
-*	**DAY_OF_WEEK:** The day of week in numerical form 
-
-*	**Day_Week_Description:** The day of week in categorical form 
-
-*	**NO_OF_VEHICLES:** The number of vehicles involved in the accident
-
-*	**NO_PERSONS:** The number of people involved in the accident
-
-*	**NO_PERSONS_INJ_2:** The number of people with an injury level of 2 
-
-*	**NO_PERSONS_INJ_3:** The number of people with an injury level of 3 
-
-*	**NO_PERSONS_KILLED:** The number of people died 
-
-*	**NO_PERSONS_NOT_INJ:** The number of people not injured 
-
-* **Accident_Type_Desc:** Description of the accident type 
-
-*	**DCA_Description:** ‘Definition for Coding Accidents’ code description. Basically, the category of the accident. 
-
-* **SEVERITY:** The severity of the accident in numerical form 
- 
-
-**Accident location and environmental attributes:**
-
-*	**SPEED_ZONE:** The speed zone of where the accident occurred
-
-*	**Road_Geometry_Desc:** The road geometry description 
-
-*	**ROAD_NAME:** Name of the road the accident occurred on 
-
-*	**ROAD_TYPE:** Type of the road the accident occurred on 
-
-*	**ROAD_NAME_INT:** Name of the road intersection the accident is closest to 
-
-*	**ROAD_TYPE_INT:** Type of the road intersection the accident is closest to 
-
-*	**LGA_NAME:** The local government area name 
-
-*	**Road_Surface_Type_Desc:** The road surface type description 
-
-*	**Surface_Cond_Desc:** The road surface condition 
-
-*	**LIGHT_CONDITION:** The light condition in numerical form 
-
-*	**Light_Condition_Desc:** The light condition in categorical form 
-
- 
-**Weather attributes:**
-
-*	**Atmosph_Cond_Desc:** The atmosphere condition description 
-
-*	**Temperature:** The average temperature throughout the day 
-
-*	**DewPoint:** The average dewpoint throughout the day 
-
-*	**RelativeHumidity:** The average relative humidity throughout the day 
-
-*	**WindSpeed:** The average windspeed throughout the day 
-
-*	**Precipitation:** The total precipitation throughout the day 
-
-*	**Visibility:** The average visibility throughout the day. The distance that can seen in daylight. 
-
-*	**CloudCover:** The average cloud cover throughout the day 
-
-*	**WeatherType:** The weather types throughout the day 
-
-*	**Conditions:** The weather conditions throughout the day 
- 
-**Vehicle attributes:**
-
-*	**VEHICLE_YEAR_MANUF:** When the vehicle that the person was riding was manufactured 
-
-*	**VEHICLE_BODY_STYLE:** The shape and body of the vehicle the person was on when the accident happened 
-
-*	**VEHICLE_MAKE:** The brand of the vehicle the person was on 
-
-*	**VEHICLE_MODEL:** The model of the brand (specific product) of the vehicle 
-
-*	**NO_OF_CYLINDERS:** The number of cylinders which power the car 
- 
-**Person attributes:**
-
-*	**PERSON_ID:** Unique ID for the person involved in the accident
-
-*	**SEX:** The gender of the person 
-
-*	**AGE:** The age of the person 
-
-*	**Age_Group:** Grouped-up version of age 
-
-*	**INJ_LEVEL:** The injury level in numerical form 
-
-*	**Inj_Level_Desc:** The injury level in categorical form 
-
-*	**SEATING_POSITION:** Indicates the seating position of where the person was sitting in a vehicle 
-
-*	**Road_User_Type_Desc:** Type of road user the person is 
-
-*	**POSTCODE:** Postcode of where the person lives 
-
-*	**TOTAL_NO_OCCUPANTS:** The number of people in the vehicle the person was on
-
-\newpage
-
-## **Figure 5.** Dealing with missing values techniques
-
-![title](missing_data.png)
+| Accident attributes                            |                                                                                                                           |
+|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| X                                              | The ID for the record                                                                                                     |
+| ACCIDENT_NO                                    | The accident id that the person was associated with                                                                       |
+| FATAL_ACCIDENT                                 | Categorical variable on whether the person was involved in an accident with fatalities. This will be our target variable. |
+| ACCIDENTDATE                                   | The date of the accident                                                                                                  |
+| ACCIDENTTIME                                   | The time of the accident                                                                                                  |
+| DAY_OF_WEEK                                    | The day of week in numerical form                                                                                         |
+| Day_Week_Description                           | The day of week in categorical form                                                                                       |
+| NO_OF_VEHICLES                                 | The number of vehicles involved in the accident                                                                           |
+| NO_PERSONS                                     | The number of people involved in the accident                                                                             |
+| NO_PERSONS_INJ_2                               | The number of people with an injury level of 2                                                                            |
+| NO_PERSONS_INJ_3                               | The number of people with an injury level of 3                                                                            |
+| NO_PERSONS_KILLED                              | The number of people died                                                                                                 |
+| NO_PERSONS_NOT_INJ                             | The number of people not injured                                                                                          |
+| Accident_Type_Desc                             | Description of the accident type                                                                                          |
+| DCA_Description                                | " ‘Definition for Coding Accidents’ code description. Basically, the category of the accident. "                          |
+| SEVERITY                                       | The severity of the accident in numerical form                                                                            |
+|                                                |                                                                                                                           |
+| Accident location and environmental attributes |                                                                                                                           |
+| SPEED_ZONE                                     | The speed zone of where the accident occurred                                                                             |
+| Road_Geometry_Desc                             | The road geometry description                                                                                             |
+| ROAD_NAME                                      | Name of the road the accident occurred on                                                                                 |
+| ROAD_TYPE                                      | Type of the road the accident occurred on                                                                                 |
+| ROAD_NAME_INT                                  | Name of the road intersection the accident is closest to                                                                  |
+| ROAD_TYPE_INT                                  | Type of the road intersection the accident is closest to                                                                  |
+| LGA_NAME                                       | The local government area name                                                                                            |
+| Road_Surface_Type_Desc                         | The road surface type description                                                                                         |
+| Surface_Cond_Desc                              | The road surface condition                                                                                                |
+| LIGHT_CONDITION                                | The light condition in numerical form                                                                                     |
+| Light_Condition_Desc                           | The light condition in categorical form                                                                                   |
+|                                                |                                                                                                                           |
+| Weather attributes                             |                                                                                                                           |
+| Atmosph_Cond_Desc                              | The atmosphere condition description                                                                                      |
+| Temperature                                    | The average temperature throughout the day                                                                                |
+| DewPoint                                       | The average dewpoint throughout the day                                                                                   |
+| RelativeHumidity                               | The average relative humidity throughout the day                                                                          |
+| WindSpeed                                      | The average windspeed throughout the day                                                                                  |
+| Precipitation                                  | The total precipitation throughout the day                                                                                |
+| Visibility                                     | The average visibility throughout the day. The distance that can seen in daylight.                                        |
+| CloudCover                                     | The average cloud cover throughout the day                                                                                |
+| WeatherType                                    | The weather types throughout the day                                                                                      |
 
 
 \newpage
 
-## **Figure 6.** Dealing with missing values techniques
+### **Appendix A-5.** Dealing with missing values techniques
 
 | Techniques                                    | Definition                                                                                                                                                                                                                                                                                                                                                                   |
 |----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -178,4 +99,16 @@ library(here)
 |                                               | "This is useful in making predictions about the missing values by finding the k’s closest neighbors to the observation with missing data and then imputing them based on the non-missing values in the neighborhood (Badr, 2019)."                                                                                                                                           |
 | Random Imputation                             | "On the other hand, replace missing numerical data with mean and replace missing categorical data at existing distribution are the two techniques we chose to deal with missing values in our dataset."                                                                                                                                                                      |
 
+\newpage
 
+### **Appendix A-6.** Assign Dummy Variables Techniques
+
+| Techniques                                                                                                                                                                                                                                    | Definition                                                                                                                                                      |                                                                                                                                                                            |                                              |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+| Label encoding                                                                                                                                                                                                                                | "A popular encoding technique for categorical information that is used in many applications. In this technique                                                  | a unique integer is assigned to each label depending on the alphabetical order of the labels.                                                                              |                                              |
+| However                                                                                                                                                                                                                                       | depending upon the data values and type of data                                                                                                                 | label encoding induces a new problem since it uses number sequencing. The problem using the number is that they introduce relation/comparison between them when in reality | there is no relation between these values. " |
+| One Hot Encoding                                                                                                                                                                                                                              | "This technique can solve this problem by converting each category value into a new column and assigned a 1 or 0 (notation for true/false) value to the column. |                                                                                                                                                                            |                                              |
+| Though this approach eliminates the hierarchy/order issues but does have the downside of adding more columns to the data set. It can cause the number of columns to expand greatly if you have many unique values in a category column (Yadav | 2019)."                                                                                                                                                         |                                                                                                                                                                            |                                              |
+|                                                                                                                                                                                                                                               |                                                                                                                                                                 |                                                                                                                                                                            |                                              |
+
+\newpage

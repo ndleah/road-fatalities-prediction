@@ -9,7 +9,7 @@ header-includes:
   - \usepackage{float}
   - \usepackage{sectsty}
   - \usepackage{paralist}
-  - \usepackage{setspace}\spacing{1.5}
+  - \usepackage{setspace}\spacing{1.25}
   - \usepackage{fancyhdr}
   - \usepackage{lastpage}
   - \usepackage{dcolumn}
@@ -20,13 +20,12 @@ header-includes:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(include = FALSE)
+library(knitr)
+opts_chunk$set(include = FALSE,fig.lp = '')
 options(tinytex.verbose = TRUE)
 ```
 
-```{r, include=FALSE}
-library(here)
-```
+
 
 ```{=tex}
 \allsectionsfont{\centering}
@@ -34,7 +33,6 @@ library(here)
 \subsubsectionfont{\raggedright}
 ```
 \pagenumbering{gobble}
-
 
 
 \begin{centering}
@@ -48,9 +46,8 @@ library(here)
 
 \vspace{1cm}
 
-```{r uni_logo, echo=F, out.width="20%"}
-knitr::include_graphics("UTSlogo.png")
-```
+
+\includegraphics[width=.4\textwidth]{UTSlogo.png}
 
 \Large
 
@@ -102,8 +99,6 @@ October, 2021
 ```
 \pagenumbering{arabic}
 
-
-\newpage
 <!---Introduction-->
 ```{r intro, child = 'introduction.Rmd'}
 ```
@@ -137,9 +132,12 @@ October, 2021
 
 <!---Appendix-->
 \blandscape
-```{r appendix, child = 'appendix_1.Rmd'}
+```{r appendix, child = 'appendix1.Rmd'}
 ```
 \elandscape
 
-```{r appendix, child = 'appendix_2.Rmd'}
+```{r appendix, child = 'appendix2.Rmd'}
+```
+
+```{r appendix, child = 'appendix3.Rmd'}
 ```

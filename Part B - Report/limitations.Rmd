@@ -5,4 +5,31 @@ output: pdf_document
 
 # Limitations 
 
+## Ethical issues
+
+Lack of data due to ethical issues. This includes personal information like personal attributes of people, such as hobbies, habits and ethnicity. With this data, though sensitive, an effective preventive to target education of certain groups of people for safer driving can be considered.
+Lack of traffic data
+
+No traffic data of cars traveling that did not get into an accident. The fatalities that we are predicting is if there is an accident.
+
+## Missing data
+
+There were various missing data that we had to use a couple of techniques to replace. Though with the goal to keep the same proportion or mean to reduce the impact on analysis.
+
+## Overall
+
+Limitations of this work were the limited availability of complete data on which to conduct the analysis. So, while the analysis produced non-significance, it is anticipated that as more data becomes available, the models will yield more concrete findings.
+
+Regardless, understanding the relationships among incident causal factors and outcomes may shed light on those causal factors which have the potential to lead to catastrophic events and those which may lead to less severe events.
+
 # Conclusion
+
+The modeling of road traffic accident data is of high interest for authorities to make better decisions in prioritizing and improving policies and infrastructure as corrective measures. Our study to investigate the fatality causing accidents and their most highly likely combinations of causes will give insights for authorities to make these decisions. To do this we have identified the variables of interest, which are our final features that produces the best model. 
+
+This was developed, first, through a process of data collection, cleaning and transformation of data and then several iterations of EDA, developing and evaluation of the model. And finally, to gain valuable insights, understanding the factors that goes in the final model as well as its results is crucial.
+
+To name a few in the order of highest predictability for fatal accidents we found were involved with speed zone, whether accident type struck a pedestrian, struck a fixed object, the gender, the number of people involved and whether atmospheric condition is clear or not.
+
+However, this study is not enough to conclude that these model features are causal to the fatal accident as we have no benchmarking data to compare to. Though, given an accident has occurred these are the prevalent features that are in a fatality. Further research can be looked at these areas to see if there is perhaps a causal relationship.
+
+Regardless, with these insights found, we hope it will help and better equip traffic authorities to make better decisions in prioritizing for corrective measures for road safety.

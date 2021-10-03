@@ -4,3 +4,32 @@ output: pdf_document
 ---
 
 # Executive Summary
+
+## Overview
+
+Modeling the severity of accidents based on the most effective variables accounts for developing a high-precision model presenting the possibility of occurrence of each category of future accidents, and it could be utilized to prioritize the corrective measures for authorities. 
+
+The purpose of this study is to identify the variables contributing to the fatal accidents in Victoria, Australia by collecting information on road accidents from 2006 to 2020. In this regard, the multiple logistic regression is used to recognize the most influential variables on the fatal accidents and the approach for accident prediction. 
+
+## Methodology
+
+Then it was prepared to handle its outliers, missing values and skewness. This was followed with further transformation of the data using one hot encoding and label encoding. And then we fixed the data imbalance by using two different techniques, undersampling and SMOTE, to create two different datasets.
+Several iterations of these three steps were taken to conduct this regression analysis:
+
+*	**Step 1:** Select features that go into the model
+
+*	**Step 2:** Develop and adjust model
+
+*	**Step 3:** Assess and validate model
+
+Our final model uses the undersampling data set. Training set is from the years 2006 to 2017, and the testing set is from the years 2017 to 2020. With a prediction threshold set as 0.50.
+
+## Overview of the result
+
+Results show that the logistic regression in the forward stepwise method has an accuracy prediction power of 72.4%. The most important result of the logit model accentuates the role of variables for speed zone, vulnerability of pedestrians, number of people involved (more distractions), alongside unfavorable weather and the dominant role of unsafe and poor quality of vehicles on increasing the severity of accidents. 
+
+## Limitations
+
+Our limitations of this work were the limited availability of complete data on which to conduct the analysis. So, while the analysis produced non-significance, it is anticipated that as more data becomes available, the models will yield more concrete findings.
+
+Regardless, understanding the relationships among incident causal factors and outcomes may shed light on those causal factors which have the potential to lead to catastrophic events and those which may lead to less severe events.

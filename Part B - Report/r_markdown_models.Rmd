@@ -1,0 +1,203 @@
+---
+title: "Vignette Title"
+author: "Vignette Author"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+library(MASS)
+library(tidyverse)
+library(caret)
+library(here)
+library(pROC)
+
+```
+```{r include=FALSE}
+knitr::opts_chunk$set(warning = TRUE, message = TRUE)
+no_change_train <-read_csv(here("data", "no_change_train.csv"))
+test_generic <- read_csv(here("data", "test_set_generic.csv"))
+smote_train <- read_csv(here("data", "smote_train.csv"))
+under_sample_train <- read_csv(here("data", "under_sample_train.csv"))
+cross_validation <- read_csv(here("data", "no_change_cross.csv"))
+```
+
+
+```{r eval=FALSE, echo=TRUE, fig.show='hold', message=TRUE, warning=TRUE}
+base_final_model <- glm(formula = FATAL_ACCIDENT ~ SPEED_ZONE + 
+                    Accident_Type_DescStruck.Pedestrian + 
+                    Accident_Type_DescCollision.with.a.fixed.object + SEXM + 
+                    NO_PERSONS + Light_Condition_DescDark.No.street.lights + 
+                    Atmosph_Cond_DescClear + Age_Group70. + CloudCover + 
+                    NO_OF_CYLINDERS_4 +  LIGHT_CONDITION + 
+                    Accident_Type_DescStruck.animal + ConditionsRain..Overcast + 
+                    NO_OF_CYLINDERS_12 + Surface_Cond_DescIcy + SEXF + 
+                    Age_Group17.21 + Atmosph_Cond_DescRaining + 
+                    Surface_Cond_DescDry + Surface_Cond_DescWet + 
+                    VEHICLE_YEAR_MANUF + 
+                    Accident_Type_DescVehicle.overturned..no.collision. + 
+                    ConditionsRain + Atmosph_Cond_DescFog + 
+                    Atmosph_Cond_DescStrong.winds + NO_OF_VEHICLES + 
+                    NO_OF_CYLINDERS_6 + Surface_Cond_DescSnowy + 
+                    NO_OF_CYLINDERS_8 + Age_Group16.17, 
+                    family = binomial, data = no_change_train)
+
+```
+
+
+
+
+```{r eval=FALSE, message=TRUE, warning=TRUE, include=FALSE}
+model_test <- test_generic[,-1]
+
+pred <- predict(base_final_model, model_test, type = "response")
+pred <- as.data.frame(pred)
+lift_threshold <- 0.5
+pred <- mutate(pred, pred = ifelse(pred >= lift_threshold, 1,
+                                   ifelse(pred < lift_threshold, 0, NA)))
+
+pred_y <- as.numeric(pred > 0)
+true_y <- as.numeric(test_generic$FATAL_ACCIDENT)
+pred_y_factor <- as.factor(pred_y)
+true_y_factor <- as.factor(true_y)
+confusion_matrix_1 <- confusionMatrix(pred_y_factor, true_y_factor, positive = "1")
+
+
+```
+
+
+```{r eval=FALSE, echo=FALSE, message=TRUE, warning=TRUE, paged.print=TRUE, results='asis'}
+print(confusion_matrix_1)
+print(" ")
+
+```
+```{r}
+print(confusion_matrix_1$byClass)
+```
+
+```{r eval=FALSE, echo=FALSE}
+#Create ROC curve
+idx <- order(-pred)
+recall <- cumsum(true_y[idx] == 1) / sum(true_y == 1)
+specificity <- (sum(true_y == 0) - cumsum(true_y[idx] == 0)) / sum(true_y == 0)
+roc_df <- data.frame(recall = recall, specificity = specificity)
+roc <- ggplot(roc_df, aes(x=specificity, y=recall)) +
+  geom_line(color='blue') +
+  scale_x_reverse(expand=c(0, 0)) +
+  scale_y_continuous(expand=c(0, 0)) +
+  geom_line(data=data.frame(x=(0:100) / 100), aes(x=x, y=1-x),
+            linetype='dotted', color='red')
+
+print(roc)
+
+auc <- sum(roc_df$recall[-1] * diff(1 - roc_df$specificity))
+print(paste0("AUC: ", auc))
+
+```
+
+```{r eval=FALSE, echo=TRUE, message=TRUE, warning=TRUE}
+
+under_sample_final_model <- glm(formula = FATAL_ACCIDENT ~ SPEED_ZONE + 
+                                  Accident_Type_DescStruck.Pedestrian + 
+                                  Accident_Type_DescCollision.with.a.fixed.object + 
+                                  SEXM +  NO_PERSONS + Atmosph_Cond_DescClear + 
+                                  LIGHT_CONDITION + Age_Group70. + CloudCover + 
+                                  Atmosph_Cond_DescRaining +
+                                  Atmosph_Cond_DescStrong.winds + 
+                                  Atmosph_Cond_DescFog + NO_OF_CYLINDERS_4 + 
+                                  Surface_Cond_DescDry + Surface_Cond_DescWet +
+                                  Accident_Type_DescStruck.animal + 
+                                  VEHICLE_YEAR_MANUF + Age_Group17.21 + 
+                                  ConditionsRain..Overcast + 
+                                  Surface_Cond_DescSnowy + NO_OF_CYLINDERS_6 +
+                                  Road_Surface_Type_DescUnpaved + 
+                                  Light_Condition_DescDark.No.street.lights, 
+                                  family = binomial, 
+                                  data = under_sample_train)
+
+```
+
+```{r eval=FALSE, echo=FALSE, message=TRUE, warning=TRUE}
+
+model_test <- test_generic[,-1]
+pred <- predict(under_sample_final_model, model_test, type = "response")
+pred <- as.data.frame(pred)
+pred <- mutate(pred, pred = ifelse(pred >= lift_threshold, 1,
+                                   ifelse(pred < lift_threshold, 0, NA)))
+
+print("Compiling confusion matrix")
+pred_y <- as.numeric(pred > 0)
+true_y <- as.numeric(test_generic$FATAL_ACCIDENT)
+pred_y_factor <- as.factor(pred_y)
+true_y_factor <- as.factor(true_y)
+confusion_matrix_2 <- confusionMatrix(pred_y_factor, true_y_factor, positive = "1")
+print(confusion_matrix_2)
+print(confusion_matrix_2$byClass)
+
+#Create ROC curve
+idx <- order(-pred)
+recall <- cumsum(true_y[idx] == 1) / sum(true_y == 1)
+specificity <- (sum(true_y == 0) - cumsum(true_y[idx] == 0)) / sum(true_y == 0)
+roc_df <- data.frame(recall = recall, specificity = specificity)
+roc <- ggplot(roc_df, aes(x=specificity, y=recall)) +
+  geom_line(color='blue') +
+  scale_x_reverse(expand=c(0, 0)) +
+  scale_y_continuous(expand=c(0, 0)) +
+  geom_line(data=data.frame(x=(0:100) / 100), aes(x=x, y=1-x),
+            linetype='dotted', color='red')
+
+print(roc)
+
+
+auc <- sum(roc_df$recall[-1] * diff(1 - roc_df$specificity))
+print(paste0("AUC: ", auc))
+
+
+print(under_sample_final_model)
+```
+
+
+```{r echo=FALSE, message=TRUE, warning=TRUE}
+
+model_test <- cross_validation[,-1]
+pred <- predict(under_sample_final_model, model_test, type = "response")
+pred <- as.data.frame(pred)
+pred <- mutate(pred, pred = ifelse(pred >= lift_threshold, 1,
+                                   ifelse(pred < lift_threshold, 0, NA)))
+
+print("Compiling confusion matrix")
+pred_y <- as.numeric(pred > 0)
+true_y <- as.numeric(cross_validation$FATAL_ACCIDENT)
+pred_y_factor <- as.factor(pred_y)
+true_y_factor <- as.factor(true_y)
+confusion_matrix_3 <- confusionMatrix(pred_y_factor, true_y_factor, positive = "1")
+print(confusion_matrix_3)
+print(confusion_matrix_3$byClass)
+
+#Create ROC curve
+idx <- order(-pred)
+recall <- cumsum(true_y[idx] == 1) / sum(true_y == 1)
+specificity <- (sum(true_y == 0) - cumsum(true_y[idx] == 0)) / sum(true_y == 0)
+roc_df <- data.frame(recall = recall, specificity = specificity)
+roc <- ggplot(roc_df, aes(x=specificity, y=recall)) +
+  geom_line(color='blue') +
+  scale_x_reverse(expand=c(0, 0)) +
+  scale_y_continuous(expand=c(0, 0)) +
+  geom_line(data=data.frame(x=(0:100) / 100), aes(x=x, y=1-x),
+            linetype='dotted', color='red')
+
+print(roc)
+
+
+auc <- sum(roc_df$recall[-1] * diff(1 - roc_df$specificity))
+print(paste0("AUC: ", auc))
+
+
+print(under_sample_final_model)
+
+```
+

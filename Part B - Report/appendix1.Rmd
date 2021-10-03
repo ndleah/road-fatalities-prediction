@@ -7,7 +7,9 @@ output: pdf_document
 
 # Appendix
 
-## **Figure 1.** Accident Data Tables Description
+### **Appendix A.** Tables
+
+### **Appendix A-1.** Accident Data Tables Description
 
 | Table             | Description                                                |
 |-------------------|------------------------------------------------------------|
@@ -23,7 +25,7 @@ output: pdf_document
 
 \newpage
 
-## **Figure 2.** Accident Data Attributes Description
+### **Appendix A-2.** Accident Data Attributes Description
 
 <div class="foo">
 

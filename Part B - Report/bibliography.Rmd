@@ -5,3 +5,54 @@ output: pdf_document
 
 # References
 
+1.	Australian Automobile Association (2020), Benchmarking the Performance for the National Road Safety Strategy Q4 2019, p. 15.
+
+2.	Chawla, N. V., Bowyer, K. W., Hall, L. O., & Kegelmeyer, W. P. (2002). SMOTE: Synthetic Minority Over-sampling Technique. Journal of Artificial Intelligence Research, 16, 321–357. https://doi.org/10.1613/jair.953
+
+3.	Hammouri, H. M., Sabo, R. T., Alsaadawi, R., & Kheirallah, K. A. (2020). Handling Skewed Data: A Comparison of Two Popular Methods. Applied Sciences, 10(18), 6247. doi:10.3390/app10186247 
+https://www.mdpi.com/2076-3417/10/18/6247/htm 
+
+4.	Murray, C. J., Lopez, A. D., & World Health Organization. (1996). The global burden of disease: a comprehensive assessment of mortality and disability from diseases, injuries, and risk factors in 1990 and projected to 2020: summary. World Health Organization.
+
+5.	Nantulya, V. M., & Reich, M. R. (2002). The neglected epidemic: road traffic injuries in developing countries. BMJ (Clinical research ed.), 324(7346), 1139–1141. https://doi.org/10.1136/bmj.324.7346.1139
+
+6.	scale function - RDocumentation. (n.d.). RDocumentation. Retrieved October 1, 2021, from https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/scale
+7.	Transport Accident Comission (2021). Towards Zero 2016-2020 Road Safety Strategy, p.3. Retrieved from http://tac.clients.squiz.net/__data/assets/pdf_file/0010/183556/STU_0206_RS_STRATEGY_2016_web.pdf
+
+8.	Watson, W.L. & Ozanne-Smith, J. (1997). The cost of injury to Victoria. Monash University Accident Research Centre, Report No 124.
+
+9.	World Health Organization. (n.d.). Road traffic injuries. World Health Organization. Retrieved from https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries.
+
+10.	Yadav, D. (2020). Categorical encoding using Label-Encoding and One-Hot-Encoder. Medium. https://towardsdatascience.com/categorical-encoding-using-label-encoding-and-one-hot-encoder-911ef77fb5bd 
+
+11.	Christensen, K. (2020). Too much data, too little time - Towards Data Science. Medium. https://towardsdatascience.com/too-much-data-too-little-time-1e7441ecdae1 
+
+12.	Bhandari, A. (2021). Feature Scaling | Standardization Vs Normalization. Analytics Vidhya. https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/ 
+
+13.	Bursac, Z., Gauss, C. H., Williams, D. K., & Hosmer, D. W. (2008). Purposeful selection of variables in logistic regression. Source code for biology and medicine, 3, 17. https://doi.org/10.1186/1751-0473-3-17
+
+14.	Amelia II: A Program for Missing Data. (n.d.). GARY KING. Retrieved from https://gking.harvard.edu/amelia
+
+15.	Badr, W. (2019). 6 Different Ways to Compensate for Missing Values In a Dataset (Data Imputation with examples). Medium. Retrieved from https://towardsdatascience.com/6-different-ways-to-compensate-for-missing-values-data-imputation-with-examples-6022d9ca0779
+
+16.	Doglun, A., (2020). Module 5: Scan: Outliers. Retrieved from http://rare-phoenix-161610.appspot.com/secured/Module_05.html 
+
+17.	Maheshwari, Satyam & Jain, R.C. & Jadon, R.s. (2018). An Insight into Rare Class Problem: Analysis and Potential Solutions. Journal of Computer Science. 14. 777-792. 10.3844/jcssp.2018.777.792.
+
+18.	Mandrekar, J. N. (2010). Receiver Operating Characteristic Curve in Diagnostic Test Assessment. Journal of Thoracic Oncology, 5(9), 1315–1316. https://doi.org/10.1097/jto.0b013e3181ec173d
+
+19.	Agrawal, S. (2021). How to split data into three sets (train, validation, and test) And why? Medium. https://towardsdatascience.com/how-to-split-data-into-three-sets-train-validation-and-test-and-why-e50d22d3e54c 
+
+20.	Saporta, R. (2013, November 28). Understanding `scale` in R. Stack Overflow. https://stackoverflow.com/questions/20256028/understanding-scale-in-r
+
+21.	Bill (2014, July 11). What is the reason the log transformation is used with right-skewed distributions? Stack Exchange. https://stats.stackexchange.com/questions/107610/what-is-the-reason-the-log-transformation-is-used-with-right-skewed-distribution
+
+22.	Geller, S. (2019, April 5). Normalization vs Standardization — Quantitative analysis. Towards Data Science. https://towardsdatascience.com/normalization-vs-standardization-quantitative-analysis-a91e8a79cebf
+
+23.	Lakshmanan S. (2019, May 16). How, When, and Why Should You Normalize / Standardize / Rescale Your Data? Towards AI. https://towardsai.net/p/data-science/how-when-and-why-should-you-normalize-standardize-rescale-your-data-3f083def38ff
+
+24.	Vidhya, A. (2020, July 5). Imbalanced Classification Problems in R. Analytics Vidhya. https://www.analyticsvidhya.com/blog/2016/03/practical-guide-deal-imbalanced-classification-problems/
+
+25.	Pykes, K. (2020, September 10). Oversampling and Undersampling - Towards Data Science. Towards Data Science. https://towardsdatascience.com/oversampling-and-undersampling-5e2bbaf56dcf
+
+

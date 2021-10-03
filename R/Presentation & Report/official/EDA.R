@@ -16,6 +16,7 @@ library(forcats)
 library(scales)
 library(treemapify) #plot treemap visualization
 library(janitor)
+library(DataExplorer)
 
 #--------------------------------------------------------------------------------------------
 # Load the dataset
@@ -76,7 +77,7 @@ accident_summary_year <- fatality_accidents %>%
   group_by(year) %>% 
   tally()
 
-ggplot(accident_summary_year) +
+year_viz <- ggplot(accident_summary_year) +
   aes(x = year, y = n) +
   geom_line(size = 0.5, colour = "#B22222") +
   geom_point(color = "#B22222", size = 2) +
@@ -97,14 +98,11 @@ ggplot(accident_summary_year) +
   theme(plot.title = element_text(size = 15L, hjust = 0.5))
 
 ####################################################################
-## Fatal accident proportion by Month (2015-2019)
+## Fatal accident proportion by Month (2006-2020)
 ####################################################################
 
-year_15_20 <- fatality_accidents %>%
-  filter(ACCIDENTDATE > as.Date("2014-12-31"))
-
-accident_summary_month <-  year_15_20 %>% 
-  mutate(month = months(as.Date(year_15_20$ACCIDENTDATE))) %>%
+accident_summary_month <-  df %>% 
+  mutate(month = months(as.Date(df$ACCIDENTDATE))) %>%
   group_by(month) %>% 
   tally()
 
@@ -114,21 +112,21 @@ accident_summary_month$month <- ordered( # order month chronically
                                          "August","September","October",
                                          "November","December"))
 ## bar plot
-accident_summary_month %>%
-  group_by(month)  %>%
-  ggplot(aes(x = month, y = n)) +
-  geom_col(fill = "#B22222") +
-  ggtitle("Fatalities by Month (2015-2019)") +
-  scale_y_continuous(expand = c(0, 0), limits = c(0, 120,140), 
-                     breaks = c(0,20,40,60,80,100,120,140)) +
+
+month_viz <- ggplot(accident_summary_month) +
+  aes(x = month, weight = n) +
+  geom_bar(fill = "#B22222") +
+  ggtitle("Fatalities by Month (2006-2020)") +
   geom_label(aes(x = month, y = n, label = n)) +
   labs(x = "month", y = "fatalities") +
   coord_flip() +
   ggthemes::theme_tufte() +
   theme(plot.title = element_text(size = 15L, hjust = 0.5))
+ 
+year_viz + month_viz
 
 ####################################################################
-## Fatalities by Hour and Weekdays (2015-2019)
+## Fatalities by Hour and Weekdays (2006-2020)
 ####################################################################
 
 ## add columns for accident hours
@@ -390,7 +388,7 @@ arranged %>%
   mutate(prop = percent(value / sum(value))) -> arranged
 
 # pie chart
-ggplot(arranged, aes(x = "", y = value, 
+road_user_viz <- ggplot(arranged, aes(x = "", y = value, 
                      fill = fct_inorder(Road_User_Type_Desc))) + 
   geom_bar(stat = "identity", width = 1) +
   geom_col(color = "black", width = 1) +
@@ -430,7 +428,7 @@ accident_type %>%
   mutate(prop = percent(value / sum(value))) -> accident_type
 
 # pie chart
-ggplot(accident_type, aes(x = "", y = value, 
+accident_type_viz <- ggplot(accident_type, aes(x = "", y = value, 
                           fill = fct_inorder(Accident_Type_Desc))) + 
   geom_bar(stat = "identity", width = 1) +
   geom_col(color = "black", width = 1) +
@@ -443,6 +441,8 @@ ggplot(accident_type, aes(x = "", y = value,
   guides(fill = guide_legend(title = "Accident Types")) +
   ggthemes::theme_tufte() +
   theme(plot.title = element_text(size = 15L, hjust = 0.5))
+
+road_user_viz + accident_type_viz
 
 ####################################################################
 # Number of Fatal accidents by Road Surface Condition
@@ -457,7 +457,7 @@ df2 <- car_accidents %>%
             number_of_sameples = n(),
             fatalities_ratio = total_fatalities / number_of_sameples)
 
-df2 %>%
+surface_viz <- df2 %>%
   filter(surface_cond_desc != 'Unknown') %>%
   ggplot(aes(x = surface_cond_desc, y = fatalities_ratio)) +
   geom_bar(stat = 'identity', fill = "#B22222") +
@@ -482,21 +482,20 @@ df3 <- car_accidents %>%
             fatalities_ratio = total_fatalities / number_of_sameples)
 
 
-df3 %>%
+weather_viz <- df3 %>%
   filter(conditions != 'Unknown') %>%
   ggplot(aes(x = conditions, y = fatalities_ratio)) +
   geom_bar(stat = 'identity', fill = "#B22222") +
   xlab("Weather Condition Description") + 
   ylab("Total Accidents with Fatalities / Total Accidents") +
   labs(title = "Number of Fatal Accidents by Weather Conditions") +
-  coord_flip() +
   ggthemes::theme_tufte() +
   theme(
     plot.title = element_text(size = 16L,
                               face = "bold",
                               hjust = 0.5)
   )
-
+surface_viz + weather_viz
 ####################################################################
 # Number of Fatal accidents by Light Conditions
 ####################################################################
@@ -522,3 +521,28 @@ df4 %>%
                               face = "bold",
                               hjust = 0.5)
   )
+
+####################################################################
+# Missing Value Plot
+####################################################################
+plot_missing(car_accidents)
+
+####################################################################
+# Histogram of Data Distribution
+####################################################################
+df <- read_csv(here('data', 'car_accident.csv'))
+
+log_cols <- c('Precipitation', 'CloudCover', 'RelativeHumidity', 'NO_PERSONS',
+              'TOTAL_NO_OCCUPANTS', 'NO_OF_VEHICLES', 'SPEED_ZONE',
+              'LIGHT_CONDITION')
+
+log_df <- df[log_cols]
+plot_histogram(log_df)
+
+####################################################################
+# Outlier Boxplot for Age
+####################################################################
+# box plot
+boxplot(df$AGE, main="AGE") # Speed Zone
+#multivariate box plot
+boxplot(df$AGE~df$Age_Group)

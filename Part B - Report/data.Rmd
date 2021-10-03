@@ -8,16 +8,16 @@ output: pdf_document
 
 ## Accident Data
 
-The national road crash database obtained from the Road Crash Information System was the major source of data used in this study (RCIS). The database contains 9 tables, 500,000+ crash records, and 100 features spanning a 4-year period from 2006 to 2020. (Figure 1, 2).
+The national road crash database obtained from the Road Crash Information System was the major source of data used in this study (RCIS). The database contains 9 tables, 500,000+ crash records, and 100 features spanning a 4-year period from 2006 to 2020. (Appendix A-1, A-2).
 
 With such a vast number of features, we can investigate several methods for predicting the fatal probability associated with different factors. The dataset is made up of features in multiple formats that include both numerical and categorical data. Because the aim of this research project was to discover the factors that potentially contribute to fatal road injuries, data was refined and parsed in the Data Pre-processing section for further analysis.
 
 ## Weather Data
 
-In order to assist our analysis, our group has also gathered weather data from Victoria from 2006 to 2020. In our study, we adopted the Visual Crossing Weather API to make an API request for the location based on a collection of all the distinct postcodes from the node dataset. Due to the time required to scrape data from the API, the program has divided down the collection to collect weather data for all suburbs yearly. The collection contains approximately 1,000,000+ weather records in various forms, each with 25 features (Figure 3).
+In order to assist our analysis, our group has also gathered weather data from Victoria from 2006 to 2020. In our study, we adopted the Visual Crossing Weather API to make an API request for the location based on a collection of all the distinct postcodes from the node dataset. Due to the time required to scrape data from the API, the program has divided down the collection to collect weather data for all suburbs yearly. The collection contains approximately 1,000,000+ weather records in various forms, each with 25 features (Appendix A-3).
 
 As a result, the weather data for each year was combined, the address columns were split to match by postcode, and the postcode was eventually matched. This will also be included in the merge data set.
 
 ## Overview of final dataset
 
-Since the API response contains a list of records for the date range specified in the query, we then use the location's postcode and the date to match each of our accident data to the weather. The final data is a merged version of the accident and weather data with the features of interest that were chosen. It is made up of 52 features (Figure 4) and 550,578 records, with each record representing a victim involved in an accident.
+Since the API response contains a list of records for the date range specified in the query, we then use the location's postcode and the date to match each of our accident data to the weather. The final data is a merged version of the accident and weather data with the features of interest that were chosen. It is made up of 52 features (Appendix A-4) and 550,578 records, with each record representing a victim involved in an accident.
