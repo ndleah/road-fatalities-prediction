@@ -8,7 +8,8 @@ output: pdf_document
 ## Ethical issues
 
 Lack of data due to ethical issues. This includes personal information like personal attributes of people, such as hobbies, habits and ethnicity. With this data, though sensitive, an effective preventive to target education of certain groups of people for safer driving can be considered.
-Lack of traffic data
+
+## Lack of traffic data
 
 No traffic data of cars traveling that did not get into an accident. The fatalities that we are predicting is if there is an accident.
 
