@@ -136,37 +136,42 @@ To avoid multicollinearity issues, an analysis of the correlation of the selecte
 
 To reduce computational cost and improve performance of the model, only certain features are kept. For the same reason, this process is performed before applying the techniques to fix data imbalance. The features selected are as follows:
 
-*	Target variable (FATAL_ACCIDENT)
+*	**Target variable:** FATAL_ACCIDENT
 
-*	User type, which is filtered to be only drivers of cars or motorcyclists (Road_User_Type_Desc)
+*	**User type, which is filtered to be only drivers of cars or motorcyclists:** Road_User_Type_Desc
 
-*	Date and time (ACCIDENTDATE, ACCIDENTTIME)
+*	**Date and time:** ACCIDENTDATE, ACCIDENTTIME
 
-Categorical features that were produced from one hot encoding (Table 2):
+Features that were produced from one hot encoding (Table 3):
 
-*	Gender (Female, Male)
+| Data Type   | Columns                                    | Description                                        | Measure levels                                                                                                       |
+|----------------------------------------------|---------------------------------------------------------------------------|-------------------------------------------------------------------------------------|------------------------------------------------------|
+| Categorical | Gender                                     | Gender                                             | Female - Male                                                                                                        |
+| Categorical | Accident_Type_Desc                         | Accident Type                                      | Collision.with.a.fixed.object - . . . Struck.animal - . . . Struck.Pedestrian - . . .Vehicle.overturned&no.collision |
+| Categorical | Road_Surface_Type_Desc - Surface_Cond_Desc | Road surface type and condition                    | Unpaved - Dry - . . . Icy - . . . Muddy - . . . Snowy - . . .Wet                                                     |
+| Categorical | Light_Condition_Desc                       | Light conditions                                   | Dark.No.street.lights - . . . Street.lights.off -                                                                    |
+| Categorical | Atmosph_Cond_Desc                          | Weather conditions                                 | Clear - . . . Fog - . . . Raining - . . . Smoke - . . . Strong.winds -                                               |
+| Categorical | Conditions                                 | Conditions                                         | Overcast - . . . Rain - . . . Rain&Overcast                                                                          |
+| Categorical | Age_Group                                  | Age group                                          | 16.17 - . . . 17.21 - . . . 70                                                                                       |
+| Categorical | Day_Week_Description                       | Weekend                                            | Saturday - . . . Sunday                                                                                              |
+| Numeric     | NO_OF_CYLINDERS                            | Cylinders of car                                   | 4 - . . . 6 - . . . 8 - . . . 12                                                                                     |
+| Numeric     | NO_OF_VEHICLES                             | Standardized variables from traffic accidents data | NA                                                                                                                   |
+| Numeric     | NO_PERSONS                                 | Standardized variables from traffic accidents data | NA                                                                                                                   |
+| Numeric     | SPEED_ZONE                                 | Standardized variables from traffic accidents data | NA                                                                                                                   |
+| Numeric     | LIGHT_CONDITION                            | Standardized variables from traffic accidents data | NA                                                                                                                   |
+| Numeric     | TOTAL_NO_OCCUPANTS                         | Standardized variables from traffic accidents data | NA                                                                                                                   |
+| Numeric     | CloudCover                                 | Standardized variables from weather data           | NA                                                                                                                   |
+| Numeric     | RelativeHumidity                           | Standardized variables from weather data           | NA                                                                                                                   |
+| Numeric     | Precipiation                               | Standardized variables from weather data           | NA                                                                                                                   |
+| Numeric     | EHICLE_YEAR_MANUF                          | Original variables from traffic accidents data     | NA                                                                                                                   |
+| Numeric     | WindSpeed                                  | Original variables from weather data               | NA                                                                                                                   |
+| Numeric     | Temperature                                | Original variables from weather data               | NA                                                                                                                   |
+| Numeric     | DewPoint                                   | Original variables from weather data               | NA                                                                                                                   |
+                                                            |
 
-*	Accident Type (Accident_Type_DescCollision.with.a.fixed.object, ...Struck.animal, ...Struck.Pedestrian, ...Vehicle.overturned&no.collision)
-
-*	Road surface type and condition (Road_Surface_Type_DescUnpaved, Surface_Cond_DescDry, …Icy, ...Muddy, ...Snowy, ...Wet)
-
-*	Weather and light conditions (Atmosph_Cond_DescClear, ...Fog, ...Raining, ...Smoke, ...Strong.winds, Light_Condition_DescDark.No.street.lights, ...Street.lights.off, ConditionsOvercast, ...Rain, ...Rain&Overcast)
-
-*	Age group (Age_Group16.17, ...17.21, ...70)
-
-*	Weekend (Day_Week_DescriptionSaturday, ...Sunday)
-
-*	Cylinders of car (NO_OF_CYLINDERS_4, ...6, ...8, ...12)
-
-Numerical features:
-
-*	Standardized variables from traffic accidents data (NO_OF_VEHICLES, NO_PERSONS, SPEED_ZONE, TOTAL_NO_OCCUPANTS, LIGHT_CONDITION)
-
-*	Standardized variables from weather data (CloudCover, RelativeHumidity, Precipiation)
-
-*	Original variables from traffic accidents data (VEHICLE_YEAR_MANUF)
-
-*	Original variables from weather data (WindSpeed, Temperature, DewPoint)
+\begin{center}
+Table 3. Numeric and categorical features selection for final model
+\end{center}
 
 ## Developing Model
 
@@ -185,7 +190,7 @@ The data split ratios for train, test, and validation data are 70/30/10 where tr
 | Cross Validation | Cross_set_generic  | 2020 afterwards |
 
 \begin{center}
-Table 3. Datasets for building the model
+Table 4. Datasets for building the model
 \end{center}
 
 Furthermore, in order to improve the model's accuracy when evaluating it later, our team considers using the Lift and Reduce method, in which we essentially set the possibility that the model can predict the probability of occurrence for our target variable, which is “FATAL ACCIDENT,' with threshold ratios of 0.40, 0.50, and 0.60, respectively.
@@ -194,7 +199,7 @@ The model refining process was automated by using the forward selection method. 
 
 # Evaluation
 
-In the binary-class problem, the confusion matrix (Table 4) displays the results of correctly and incorrectly perceived cases of each class. The confusion matrix is used to assess the classification performance of both common and uncommon classes.
+In the binary-class problem, the confusion matrix (Table 5) displays the results of correctly and incorrectly perceived cases of each class. The confusion matrix is used to assess the classification performance of both common and uncommon classes.
 
 |              |            | **Predictive class** |                |
 |--------------|------------|------------------|----------------|
@@ -203,7 +208,7 @@ In the binary-class problem, the confusion matrix (Table 4) displays the results
 |              | **Not Faulty** | False Positive   | True Negative  |
 
 \begin{center}
-Table 4. Datasets for building the model
+Table 5. Datasets for building the model
 \end{center}
 
 In order to evaluate our model's standard evaluation principals are used. The key methods of evaluation being used are:
@@ -253,16 +258,16 @@ By lowering the threshold, it gives the opportunity to correctly classify those 
 | SMOTE > 0.20                 | 0.8      | 0.42      | 0.54   | 0.81        | 0.67 | 22160 |
 
 \begin{center}
-Table 5. Model results summary
+Table 6. Model results summary
 \end{center}
 
-The final chosen model was “Under Sample Fatality > 0.5”. This model was training on the under sampled data set while keeping the classification threshold at 50%. As can be seen in Table 5, this model correctly classified true positives substantially better than the base model while still maintaining to correctly classify true negatives. Furthermore, the recall of 0.72 is greater than any other of the models developed and as stated previously within this report, there is a high value to this metric due to the nature of the classification problem. Finally, the AUC of 0.71 falls within the acceptable range previously identified. For these reasons, this model was accepted as the final model.
+The final chosen model was “Under Sample Fatality > 0.5”. This model was training on the under sampled data set while keeping the classification threshold at 50%. As can be seen in Table 6, this model correctly classified true positives substantially better than the base model while still maintaining to correctly classify true negatives. Furthermore, the recall of 0.72 is greater than any other of the models developed and as stated previously within this report, there is a high value to this metric due to the nature of the classification problem. Finally, the AUC of 0.71 falls within the acceptable range previously identified. For these reasons, this model was accepted as the final model.
 
-![Base model AUC chart](ROC_2.png){width=300px}
+![Base model AUC chart](ROC_1.png){width=300px}
 
 
 ## Evaluation Of Final Model
 
 Once all model variations  were tested and reviewed, the best performing model was chosen and then ran on the cross-validation hold-out set (Figure 15). The purpose of the hold out is to test the model on data it has not seen to remove overfitting bias in the training stage (Appendix D-4).
 
-![Cross Validation ROC Curve](ROC_3.png){width=300px}
+![Cross Validation ROC Curve](ROC_3.png){width=400px}
