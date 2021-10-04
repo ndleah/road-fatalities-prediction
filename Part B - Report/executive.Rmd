@@ -9,7 +9,7 @@ output: pdf_document
 
 Modeling the severity of accidents based on the most effective variables accounts for developing a high-precision model presenting the possibility of occurrence of each category of future accidents, and it could be utilized to prioritize the corrective measures for authorities. 
 
-The purpose of this study is to identify the variables contributing to the fatal accidents in Victoria, Australia by collecting information on road accidents from 2006 to 2020. In this regard, the logistic regression model is used to recognize the most influential variables on the fatal accidents given an accident has occurred. 
+The purpose of this study is to identify the most influential variables contributing to fatal accidents, given an accident occurs. To do so we collected road accident data for Victoria, Australia, between the years 2006 to 2020. In this regard, multiple logistic regression is used to recognize the most influential variables on fatal accidents and the approach for accident prediction.
 
 ## Methodology
 
