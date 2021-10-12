@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.2)  4 OCT 2021 08:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.2)  4 OCT 2021 08:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -745,124 +745,124 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 [4]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-83.
+84.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [1] [2] [3]
-<year_month.png, id=175, 1227.83719pt x 446.41782pt>
+<year_month.png, id=177, 1227.83719pt x 446.41782pt>
 File: year_month.png Graphic file (type png)
 <use year_month.png>
-Package pdftex.def Info: year_month.png  used on input line 356.
+Package pdftex.def Info: year_month.png  used on input line 357.
 (pdftex.def)             Requested size: 451.68845pt x 164.22516pt.
-<hour_week_fatal.png, id=176, 462.97969pt x 377.91188pt>
+<hour_week_fatal.png, id=178, 462.97969pt x 377.91188pt>
 File: hour_week_fatal.png Graphic file (type png)
 <use hour_week_fatal.png>
-Package pdftex.def Info: hour_week_fatal.png  used on input line 368.
+Package pdftex.def Info: hour_week_fatal.png  used on input line 369.
 (pdftex.def)             Requested size: 225.84474pt x 184.34807pt.
-<hour_fatal.png, id=177, 732.48656pt x 377.91188pt>
+<hour_fatal.png, id=179, 732.48656pt x 377.91188pt>
 File: hour_fatal.png Graphic file (type png)
 <use hour_fatal.png>
-Package pdftex.def Info: hour_fatal.png  used on input line 378.
+Package pdftex.def Info: hour_fatal.png  used on input line 379.
 (pdftex.def)             Requested size: 376.41328pt x 194.20294pt.
-<daytime_fatal.png, id=178, 474.27188pt x 377.91188pt>
+<daytime_fatal.png, id=180, 474.27188pt x 377.91188pt>
 File: daytime_fatal.png Graphic file (type png)
 <use daytime_fatal.png>
-Package pdftex.def Info: daytime_fatal.png  used on input line 390.
+Package pdftex.def Info: daytime_fatal.png  used on input line 391.
 (pdftex.def)             Requested size: 225.84595pt x 179.95978pt.
 [4pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.405 
+l.406 
        <./year_month.png>] [5pdfTeX warning (ext4): destination with the same i
 dentifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.405 
+l.406 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.405 
+l.406 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.405 
+l.406 
        <./hour_week_fatal.png (PNG copy)> <./hour_fatal.png> <./daytime_fatal.p
 ng>]
-<LGAtop10.png, id=196, 474.27188pt x 377.91188pt>
+<LGAtop10.png, id=198, 474.27188pt x 377.91188pt>
 File: LGAtop10.png Graphic file (type png)
 <use LGAtop10.png>
-Package pdftex.def Info: LGAtop10.png  used on input line 408.
+Package pdftex.def Info: LGAtop10.png  used on input line 409.
 (pdftex.def)             Requested size: 225.84595pt x 179.95978pt.
-<roadgeo_fatal.png, id=197, 474.27188pt x 377.91188pt>
+<roadgeo_fatal.png, id=199, 474.27188pt x 377.91188pt>
 File: roadgeo_fatal.png Graphic file (type png)
 <use roadgeo_fatal.png>
-Package pdftex.def Info: roadgeo_fatal.png  used on input line 421.
+Package pdftex.def Info: roadgeo_fatal.png  used on input line 422.
 (pdftex.def)             Requested size: 225.84595pt x 179.95978pt.
 [6pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.433 
+l.434 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.433 
+l.434 
        <./LGAtop10.png (PNG copy)> <./roadgeo_fatal.png>]
-<speed_fatal.png, id=206, 474.27188pt x 377.91188pt>
+<speed_fatal.png, id=208, 474.27188pt x 377.91188pt>
 File: speed_fatal.png Graphic file (type png)
 <use speed_fatal.png>
-Package pdftex.def Info: speed_fatal.png  used on input line 436.
+Package pdftex.def Info: speed_fatal.png  used on input line 437.
 (pdftex.def)             Requested size: 225.84595pt x 179.95978pt.
-<user_surface.png, id=207, 1163.0953pt x 446.41782pt>
+<user_surface.png, id=209, 1163.0953pt x 446.41782pt>
 File: user_surface.png Graphic file (type png)
 <use user_surface.png>
-Package pdftex.def Info: user_surface.png  used on input line 449.
+Package pdftex.def Info: user_surface.png  used on input line 450.
 (pdftex.def)             Requested size: 451.68863pt x 173.36656pt.
-<surface_weather.png, id=208, 1263.97218pt x 446.41782pt>
+<surface_weather.png, id=210, 1263.97218pt x 446.41782pt>
 File: surface_weather.png Graphic file (type png)
 <use surface_weather.png>
-Package pdftex.def Info: surface_weather.png  used on input line 462.
+Package pdftex.def Info: surface_weather.png  used on input line 463.
 (pdftex.def)             Requested size: 451.67377pt x 159.52504pt.
 [7pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.477 
+l.478 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.477 
+l.478 
        <./speed_fatal.png> <./user_surface.png>] [8pdfTeX warning (ext4): desti
 nation with the same identifier (name{figure.9}) has been already used, duplica
 te ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.513 
+l.514 
        <./surface_weather.png>]
-<missing_data.png, id=227, 1020.06094pt x 681.29532pt>
+<missing_data.png, id=229, 1020.06094pt x 681.29532pt>
 File: missing_data.png Graphic file (type png)
 <use missing_data.png>
-Package pdftex.def Info: missing_data.png  used on input line 563.
+Package pdftex.def Info: missing_data.png  used on input line 564.
 (pdftex.def)             Requested size: 451.69214pt x 301.68367pt.
 [9] [10pdfTeX warning (ext4): destination with the same identifier (name{figure
 .10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.614 \end{longtable}
+l.615 \end{longtable}
                       <./missing_data.png>]
-<hist_dist.png, id=241, 648.17157pt x 446.41782pt>
+<hist_dist.png, id=243, 648.17157pt x 446.41782pt>
 File: hist_dist.png Graphic file (type png)
 <use hist_dist.png>
-Package pdftex.def Info: hist_dist.png  used on input line 646.
+Package pdftex.def Info: hist_dist.png  used on input line 647.
 (pdftex.def)             Requested size: 527.00404pt x 362.9656pt.
 
-Overfull \hbox (40.74643pt too wide) in paragraph at lines 646--647
+Overfull \hbox (40.74643pt too wide) in paragraph at lines 647--648
  [][] 
  []
 
@@ -870,127 +870,117 @@ Overfull \hbox (40.74643pt too wide) in paragraph at lines 646--647
 e.11}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.669 \textbf{Handling Outliers}
+l.670 \textbf{Handling Outliers}
                                  <./hist_dist.png>]
-<age_boxplot.png, id=252, 573.64313pt x 546.54187pt>
+<age_boxplot.png, id=254, 573.64313pt x 546.54187pt>
 File: age_boxplot.png Graphic file (type png)
 <use age_boxplot.png>
-Package pdftex.def Info: age_boxplot.png  used on input line 685.
+Package pdftex.def Info: age_boxplot.png  used on input line 686.
 (pdftex.def)             Requested size: 225.83817pt x 215.16864pt.
-<age_multi_boxplot.png, id=253, 573.64313pt x 546.54187pt>
+<age_multi_boxplot.png, id=255, 573.64313pt x 546.54187pt>
 File: age_multi_boxplot.png Graphic file (type png)
 <use age_multi_boxplot.png>
-Package pdftex.def Info: age_multi_boxplot.png  used on input line 697.
+Package pdftex.def Info: age_multi_boxplot.png  used on input line 698.
 (pdftex.def)             Requested size: 225.83817pt x 215.16864pt.
 [13pdfTeX warning (ext4): destination with the same identifier (name{figure.12}
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.720 S
+l.721 S
        ince our categories values contain different variables with little <./ag
 e_boxplot.png>] [14pdfTeX warning (ext4): destination with the same identifier 
 (name{figure.13}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.758 \end{itemize}
+l.759 \end{itemize}
                     <./age_multi_boxplot.png>]
-Overfull \hbox (4.50006pt too wide) in alignment at lines 791--795
+Overfull \hbox (4.50006pt too wide) in alignment at lines 792--796
  [] [] [] [] 
  []
 
 
-Overfull \hbox (34.87868pt too wide) in paragraph at lines 798--800
+Overfull \hbox (34.87868pt too wide) in paragraph at lines 799--801
 []|\T1/lmr/m/n/10.95 (-20) Collision.with.a.fixed.object 
  []
 
 
-Overfull \hbox (31.6395pt too wide) in paragraph at lines 798--800
+Overfull \hbox (31.6395pt too wide) in paragraph at lines 799--801
 \T1/lmr/m/n/10.95 (-20) cle.overturned&no.collision|  
  []
 
 
-Overfull \hbox (2.9405pt too wide) in paragraph at lines 804--805
+Overfull \hbox (2.9405pt too wide) in paragraph at lines 805--806
 []|\T1/lmr/m/n/10.95 (-20) Dark.No.street.lights 
  []
 
 
-Overfull \hbox (7.70178pt too wide) in paragraph at lines 822--822
+Overfull \hbox (7.70178pt too wide) in paragraph at lines 823--823
 []|\T1/lmr/m/n/10.95 (-20) TOTAL_NO_OCCUPANTS|  
  []
 
 
-Overfull \hbox (4.50006pt too wide) in alignment at lines 795--836
+Overfull \hbox (4.50006pt too wide) in alignment at lines 796--837
  [] [] [] [] 
  []
 
 [15] [16] [17]
-<ROC_2.png, id=284, 433.62pt x 442.65375pt>
+<ROC_2.png, id=286, 433.62pt x 442.65375pt>
 File: ROC_2.png Graphic file (type png)
 <use ROC_2.png>
-Package pdftex.def Info: ROC_2.png  used on input line 961.
+Package pdftex.def Info: ROC_2.png  used on input line 962.
 (pdftex.def)             Requested size: 225.8476pt x 230.55275pt.
 [18] [19pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.14}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1025 \end{longtable}
+l.1026 \end{longtable}
                        <./ROC_2.png>]
-<ROC_1.png, id=301, 371.13657pt x 430.60875pt>
+<ROC_1.png, id=303, 371.13657pt x 430.60875pt>
 File: ROC_1.png Graphic file (type png)
 <use ROC_1.png>
-Package pdftex.def Info: ROC_1.png  used on input line 1045.
+Package pdftex.def Info: ROC_1.png  used on input line 1046.
 (pdftex.def)             Requested size: 225.8493pt x 262.04016pt.
 [20pdfTeX warning (ext4): destination with the same identifier (name{figure.15}
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1057 
+l.1058 
         <./ROC_1.png>]
-<ROC_3.png, id=308, 481.8pt x 297.36093pt>
+<ROC_3.png, id=310, 481.8pt x 297.36093pt>
 File: ROC_3.png Graphic file (type png)
 <use ROC_3.png>
-Package pdftex.def Info: ROC_3.png  used on input line 1060.
+Package pdftex.def Info: ROC_3.png  used on input line 1061.
 (pdftex.def)             Requested size: 301.1316pt x 185.85466pt.
 [21pdfTeX warning (ext4): destination with the same identifier (name{figure.16}
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1098 
+l.1097 
         <./ROC_3.png>] [22] [23]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-215.
+219.
 
 (c:/Users/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [24] [25
 
 ]
-Overfull \hbox (7.23996pt too wide) in paragraph at lines 1288--1288
+Overfull \hbox (7.23996pt too wide) in paragraph at lines 1292--1292
 []|\T1/lmr/m/n/10.95 (-20) WIDTH|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1313--1313
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1317--1317
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1324--1324
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1328--1328
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1334--1334
-[]|\T1/lmr/m/n/10.95 (-20) Number|  
- []
-
-
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1342--1342
-[]|\T1/lmr/m/n/10.95 (-20) Number|  
- []
-
-
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1344--1344
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1338--1338
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
@@ -1000,17 +990,12 @@ Overfull \hbox (6.22604pt too wide) in paragraph at lines 1346--1346
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1349--1349
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1348--1348
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (6.31528pt too wide) in paragraph at lines 1351--1351
-[]|\T1/lmr/m/n/10.95 (-20) NO_PERSONS_NOT_INJ|  
- []
-
-
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1351--1351
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1350--1350
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
@@ -1020,7 +1005,17 @@ Overfull \hbox (6.22604pt too wide) in paragraph at lines 1353--1353
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1356--1356
+Overfull \hbox (6.31528pt too wide) in paragraph at lines 1355--1355
+[]|\T1/lmr/m/n/10.95 (-20) NO_PERSONS_NOT_INJ|  
+ []
+
+
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1355--1355
+[]|\T1/lmr/m/n/10.95 (-20) Number|  
+ []
+
+
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1357--1357
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
@@ -1030,12 +1025,12 @@ Overfull \hbox (6.22604pt too wide) in paragraph at lines 1360--1360
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1407--1407
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1364--1364
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1436--1436
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1411--1411
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
@@ -1045,43 +1040,33 @@ Overfull \hbox (6.22604pt too wide) in paragraph at lines 1440--1440
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1452--1452
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1444--1444
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (2.42113pt too wide) in paragraph at lines 1455--1455
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1456--1456
+[]|\T1/lmr/m/n/10.95 (-20) Number|  
+ []
+
+
+Overfull \hbox (2.42113pt too wide) in paragraph at lines 1459--1459
 []|\T1/lmr/m/n/10.95 (-20) DIRECTION_LOCATION|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1466--1466
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1470--1470
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1468--1468
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1472--1472
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (1.66524pt too wide) in paragraph at lines 1470--1470
+Overfull \hbox (1.66524pt too wide) in paragraph at lines 1474--1474
 []|\T1/lmr/m/n/10.95 (-20) OFF_ROAD_LOCATION|  
- []
-
-
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1480--1480
-[]|\T1/lmr/m/n/10.95 (-20) Number|  
- []
-
-
-Overfull \hbox (1.57642pt too wide) in paragraph at lines 1482--1482
-[]|\T1/lmr/m/n/10.95 (-20) Double|  
- []
-
-
-Overfull \hbox (1.57642pt too wide) in paragraph at lines 1483--1483
-[]|\T1/lmr/m/n/10.95 (-20) Double|  
  []
 
 
@@ -1090,78 +1075,83 @@ Overfull \hbox (6.22604pt too wide) in paragraph at lines 1484--1484
  []
 
 
-Overfull \hbox (1.57642pt too wide) in paragraph at lines 1489--1489
+Overfull \hbox (1.57642pt too wide) in paragraph at lines 1486--1486
 []|\T1/lmr/m/n/10.95 (-20) Double|  
  []
 
 
-Overfull \hbox (1.57642pt too wide) in paragraph at lines 1497--1497
+Overfull \hbox (1.57642pt too wide) in paragraph at lines 1487--1487
 []|\T1/lmr/m/n/10.95 (-20) Double|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1509--1509
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1488--1488
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1573--1573
+Overfull \hbox (1.57642pt too wide) in paragraph at lines 1493--1493
+[]|\T1/lmr/m/n/10.95 (-20) Double|  
+ []
+
+
+Overfull \hbox (1.57642pt too wide) in paragraph at lines 1501--1501
+[]|\T1/lmr/m/n/10.95 (-20) Double|  
+ []
+
+
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1513--1513
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1591--1591
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1577--1577
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1598--1598
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1595--1595
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (10.78639pt too wide) in paragraph at lines 1603--1603
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1602--1602
+[]|\T1/lmr/m/n/10.95 (-20) Number|  
+ []
+
+
+Overfull \hbox (10.78639pt too wide) in paragraph at lines 1607--1607
 []|\T1/lmr/m/n/10.95 (-20) VEHICLE_YEAR_MANUF|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1603--1603
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1607--1607
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (2.24806pt too wide) in paragraph at lines 1620--1620
+Overfull \hbox (2.24806pt too wide) in paragraph at lines 1624--1624
 []|\T1/lmr/m/n/10.95 (-20) ROAD_SURFACE_TYPE|  
  []
 
 
-Overfull \hbox (6.15921pt too wide) in paragraph at lines 1638--1638
+Overfull \hbox (6.15921pt too wide) in paragraph at lines 1642--1642
 []|\T1/lmr/m/n/10.95 (-20) VEHICLE_BODY_STYLE|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1642--1642
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1646--1646
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1649--1649
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1653--1653
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (1.09149pt too wide) in paragraph at lines 1651--1651
+Overfull \hbox (1.09149pt too wide) in paragraph at lines 1655--1655
 []|\T1/lmr/m/n/10.95 (-20) CONSTRUCTION_TYPE|  
- []
-
-
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1663--1663
-[]|\T1/lmr/m/n/10.95 (-20) Number|  
- []
-
-
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1665--1665
-[]|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
@@ -1170,17 +1160,12 @@ Overfull \hbox (6.22604pt too wide) in paragraph at lines 1667--1667
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1668--1668
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1669--1669
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (11.6436pt too wide) in paragraph at lines 1670--1670
-[]|\T1/lmr/m/n/10.95 (-20) TOTAL_NO_OCCUPANTS|  
- []
-
-
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1670--1670
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1671--1671
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
@@ -1190,12 +1175,27 @@ Overfull \hbox (6.22604pt too wide) in paragraph at lines 1672--1672
  []
 
 
+Overfull \hbox (11.6436pt too wide) in paragraph at lines 1674--1674
+[]|\T1/lmr/m/n/10.95 (-20) TOTAL_NO_OCCUPANTS|  
+ []
+
+
 Overfull \hbox (6.22604pt too wide) in paragraph at lines 1674--1674
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
 
-Overfull \hbox (6.22604pt too wide) in paragraph at lines 1718--1718
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1676--1676
+[]|\T1/lmr/m/n/10.95 (-20) Number|  
+ []
+
+
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1678--1678
+[]|\T1/lmr/m/n/10.95 (-20) Number|  
+ []
+
+
+Overfull \hbox (6.22604pt too wide) in paragraph at lines 1722--1722
 []|\T1/lmr/m/n/10.95 (-20) Number|  
  []
 
@@ -1210,10 +1210,10 @@ AED: lastpage setting LastPage
 ### semi simple group (level 1) entered at line 75 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 13629 strings out of 480559
- 209289 string characters out of 5901260
- 771617 words of memory out of 5000000
- 30694 multiletter control sequences out of 15000+600000
+ 13633 strings out of 480559
+ 209351 string characters out of 5901260
+ 772678 words of memory out of 5000000
+ 30696 multiletter control sequences out of 15000+600000
  437936 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  74i,7n,80p,851b,1624s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1226,10 +1226,10 @@ ata/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/LEAH N
 GUYEN/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Us
 ers/LEAH NGUYEN/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10
 .pfb>
-Output written on OFFICIAL_REPORT.pdf (52 pages, 612354 bytes).
+Output written on OFFICIAL_REPORT.pdf (52 pages, 612862 bytes).
 PDF statistics:
- 789 PDF objects out of 1000 (max. 8388607)
- 687 compressed objects within 7 object streams
- 224 named destinations out of 1000 (max. 500000)
- 21038 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 795 PDF objects out of 1000 (max. 8388607)
+ 693 compressed objects within 7 object streams
+ 226 named destinations out of 1000 (max. 500000)
+ 21046 words of extra memory for PDF output out of 24883 (max. 10000000)
 
