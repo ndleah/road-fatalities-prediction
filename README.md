@@ -45,23 +45,13 @@ The `Part B - Report` folder contains all elements needed to generate the comple
 ---
 
 ## 📍 `.Rmd` files dictionary
-All the `.Rmd` files here correspond to the different sections of the dissertation, which are going to be merged together into the `proposal.Rmd` during the tutorial to create the complete dissertation structure: 
+All the `.Rmd` files here correspond to the different sections of the dissertation, which are going to be merged together into the final report during the tutorial to create the complete dissertation structure: 
 
 ### 1️⃣ **Part A - Proposal**
-This includes:
-
-* `proposal.Rmd`: the summary file of all sections in the report structure (final output)
-* `introduction.Rmd`: Contain 3 sections that provide rationale, stakeholders and main research question for the project.
-* `data.Rmd`: Include details about how you merged the different datasets and an assessment on whether the granularity of the data sources is sufficient to answer your research questions.
-* `model.Rmd`: The regression modelling techniques to be employed, which contains 2 parts:
-  * `Models`: Provide our suggestions of feasible models used in this project.
-  * `Evaluation`: Methods we use to pick the model
-* `limitations.Rmd`: Conclusion and provide any issues that you anticipate might arise in carrying out the project
-* `bibliography.Rmd`: References list
-* `appendix.Rmd`: Contains code samples demonstrating the data acquisition and merger processes that you have used to date.
+[View folder](https://github.com/ndleah/victoria-road-fatalities-prediction/tree/main/Part%20A%20-%20proposal)
 
 ### 2️⃣ **Part B - Report**
-*WIP*
+[View folder](https://github.com/ndleah/victoria-road-fatalities-prediction/tree/main/Part%20B%20-%20Report)
 
 ---
 ## ✍️ In-text Citation and References
@@ -122,8 +112,6 @@ Try to write a few in-line citations in any section of the dissertation that you
 
 ### 🙋 Support
 If you're not familiar with using this citation method, please kindly insert your citation information into this [Spreadsheet](https://docs.google.com/spreadsheets/d/16mRzc1SBgKN_zWF-1HGZXnepO52VWk2C_QkvU-sQ7gs/edit?usp=sharing)
-
-I'll check and help to cite them late.
 
 ---
 
