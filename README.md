@@ -1,7 +1,7 @@
 # Logistics Regression - Road Fatalities Analysis <img src="https://media0.giphy.com/media/3o6ozgHi0Fv82zA12M/giphy.gif" align="right" width="120" />
  > Group project for "Statistical Thinking for Data Science" @ UTS, Spring 2021
 
-> 👉 Access the full analysis report [**here**](https://github.com/ndleah/victoria-road-fatalities-prediction/blob/main/Part%20B%20-%20Report/Retail_AT2B_Report_3rd_Oct_21.pdf)
+> 👉 Access the full analysis report [**here**](/Part%20A%20-%20proposal/Retail_Proposal_5th_September.pdf)
 
 ## Overview
 Modeling the severity of accidents based on the most effective variables accounts for developing a high-precision model presenting the possibility of occurrence of each category of future accidents, and
