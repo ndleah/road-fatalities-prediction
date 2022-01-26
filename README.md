@@ -1,4 +1,4 @@
-# Logistics Regression - Road Fatalities Prediction <img src="https://media0.giphy.com/media/3o6ozgHi0Fv82zA12M/giphy.gif" align="right" width="120" />
+# Road Fatalities Prediction <img src="https://media0.giphy.com/media/3o6ozgHi0Fv82zA12M/giphy.gif" align="right" width="120" />
  > Group project for "Statistical Thinking for Data Science" @ UTS, Spring 2021
 
 > 👉 Access the full analysis report [**here**](/Part%20A%20-%20proposal/Retail_Proposal_5th_September.pdf)
